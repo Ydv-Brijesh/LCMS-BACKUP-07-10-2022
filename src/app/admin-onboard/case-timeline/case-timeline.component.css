@@ -126,12 +126,14 @@ i.fa.fa-check.active {
 
 .timeline-main h4 {
     margin: 0%;
+    font-size: 14px;
     color: #000000;
 }
 
 .timeline-main label {
     color: #f06321;
     font-weight: 600;
+    font-size: 15px;
 }
 
 .order {

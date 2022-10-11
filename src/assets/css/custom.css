@@ -24,6 +24,7 @@ body {
     background-color: #fa680e;
 }
 .btn-addNew {
+    border-radius: 5px;
     color: #ffffff !important;
     background-color: #fa680e;
     border-color: #fa680e;
