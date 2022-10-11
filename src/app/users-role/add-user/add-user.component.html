@@ -1,0 +1,278 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <!-- <h3 class="m-n font-thin text-white">Dashboard</h3> -->
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Create User
+                    </h3>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                            <div class="head-title">
+                                <h4>User Information</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <form [formGroup]="saveForm" (ngSubmit)="clickFunction()">
+                        <!-- <form> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">User Name <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                       formControlName="username">
+                                       <div *ngIf="f.username.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                        <div *ngIf="f.username.errors">This field is required</div>
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Designation</label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                     formControlName="designation">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Department <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                 formControlName="department">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataDept" value={{data._id}}>{{data.
+                                        org_name}}
+                                    </option>
+
+                                </select>
+
+                                <div *ngIf="f.department.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                    <div *ngIf="f.department.errors">This field is required</div>
+                               </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Section <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                    formControlName="section">
+                                       <option value=''>Select</option>
+                                       <option *ngFor="let data of getDataS" value={{data._id}}>{{data.section_name}}
+                                       </option>
+   
+                                   </select>
+                                   <div *ngIf="f.section.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                    <div *ngIf="f.section.errors">This field is required</div>
+                               </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Email<span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="email">
+                                        <div *ngIf="f.email.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                            <div *ngIf="f.email.errors">This field is required</div>
+                                       </div>
+                                       <div *ngIf="f.email.errors && f.email.errors.pattern && isValidFormSubmitted"
+                                       class="text-danger text-left mb-1">
+                                       <div *ngIf="f.email.errors.pattern"><small>Email is not valid</small></div>
+   
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Phone <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                       minlength="10" maxlength="10" formControlName="mobile">
+                                        <div *ngIf="f.mobile.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                            <div *ngIf="f.mobile.errors">This field is required</div>
+                                       </div>
+                                       <div *ngIf="f.mobile.errors && f.mobile.errors.pattern"
+                                       class="text-danger text-left mb-1 errorcontrols">
+                                       <div *ngIf="f.mobile.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Organization Name  / संगठन  का नाम <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                 formControlName="orgnization">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataOrg" value={{data._id}}>{{data.sub_org_name}}
+                                    </option>
+
+                                </select>
+                                <div *ngIf="f.orgnization.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                    <div *ngIf="f.orgnization.errors">This field is required</div>
+                               </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Circle Name / मण्डल का नाम</label>
+                                   <input type="text" placeholder="Enter.." class="form-control" formControlName="circle_name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Password <span class="text-danger">*</span></label>
+                                  <input type="password" placeholder="Enter.." class="form-control" formControlName="password">
+                                  <div *ngIf="f.password.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                    <div *ngIf="f.password.errors">This field is required</div>
+                                    <div *ngIf="f.password.errors.pattern"><small>Minimum 8 character password.</small></div>
+                                    <div *ngIf="f.password.errors.pattern"><small>At least one upper case (e.g.[A-Z])</small></div>
+                                    <div *ngIf="f.password.errors.pattern"><small>At least one lower case (e.g.[a-z])</small></div>
+                                    <div *ngIf="f.password.errors.pattern"><small>At least one digit (e.g [0-9])</small></div>
+                                    <div *ngIf="f.password.errors.pattern"><small>At least one special character (e.g [#?!@$%^&*-]).</small></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Confirm Password <span class="text-danger">*</span></label>
+                                  <input type="password" placeholder="Enter.." class="form-control" formControlName="confirm_password">
+                                  <div *ngIf="f.confirm_password.errors && f.confirm_password.errors.required && isValidFormSubmitted"
+                                  class="text-danger text-left mb-1 errorcontrols">
+                                  <div *ngIf="f.confirm_password.errors.required"><small>Confirm Password is required.</small>
+                                  </div>
+                                </div>
+                                <div *ngIf="f.confirm_password.errors && f.confirm_password.errors.mustMatch"
+                                  class="text-danger text-left mb-1 errorcontrols">
+                                  <div *ngIf="f.confirm_password.errors.mustMatch"><small>Password and Confirm Password are not matching.</small></div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+<!--                            
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Executive Engineer Name / पैरोकार अधिशासी अभियन्ता <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                    formControlName="ee_name">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataEE" value={{data._id}}>{{data.ee_name
+                                    }}
+                                    </option>
+
+                                </select>
+                                <div *ngIf="f.ee_name.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                    <div *ngIf="f.ee_name.errors">This field is required</div>
+                               </div>
+                                </div>
+                            </div> -->
+
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Posted at (Office Name) </label>
+                                  <input type="text" placeholder="Enter.." class="form-control" formControlName="office_name">
+   
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                       
+                        <div class="row">
+                          
+                           
+                            <input type="hidden" placeholder="Enter.." class="form-control" formControlName="created_by">
+                            <!-- <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Created By </label>
+                                  <input type="text" placeholder="Enter.." class="form-control" formControlName="created_by">
+   
+                                </div>
+                            </div> -->
+                        </div>
+                        
+                        <h4>Role & Permission</h4>
+                        <div class="bb form-group"></div>
+
+                        <div class="row">
+                          
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Role <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                   formControlName="role" >
+                                       <option value=''>Select</option>
+                                       <option value="admin">Admin</option>
+                                       <option value="district">District User</option>
+                                   </select>
+
+                                   <div *ngIf="f.role.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                    <div *ngIf="f.role.errors">This field is required</div>
+                               </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">District <span class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <mat-form-field appearance="fill" class="field-css">
+                                            <mat-select formControlName="district"   multiple (selectionChange)="filter($event)">
+                                            
+                                            <mat-option *ngFor="let data of getDataDist" value={{data._id}} >{{data.district}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+    
+                                        <div *ngIf="f.district.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                            <div *ngIf="f.district.errors">This field is required</div>
+                                         </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <div class="button_group_fotter">
+                                     <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

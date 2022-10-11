@@ -1,0 +1,1033 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-a wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Create Case
+                        Detail</h3>
+                    <!-- <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Create Case
+</h3> -->
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="panel">
+                <div class="">
+                    <div class="">
+                        <div class="panel-body bg-antiquewhite">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                                    <div class="top_search">
+                                        <div class="search_button">
+                                            <form>
+                                                <div class="input-group">
+                                                    <!-- <input type="text" class="form-control" placeholder="Search for..."> -->
+
+                                                    <!-- <select
+                                    class="form-control select-language form-control-sm validation"
+                                    formControlName="case_no" (click)="getCaseNo($event)">
+                                    
+                                    <option *ngFor="let data of getCaseNoData" value={{data._id}}>
+                                            {{data.case_no}}
+                                    </option>
+                                </select> 
+                            
+                            
+                                <span class="input-group-btn">
+                                    <button data-toggle="modal" data-target="#basicModal"
+                                        class="btn btn-org" type="button"><i class="fa fa-search"
+                                            aria-hidden="true"></i> SEARCH</button>
+                                </span> -->
+
+                                                    <mat-form-field class="example-full-width" appearance="fill">
+
+                                                        <input type="text" placeholder="Search Case No."
+                                                            aria-label="Text" formControlName="case_no" matInput
+                                                            [formControl]="myControl" [matAutocomplete]="auto">
+                                                        <mat-autocomplete #auto="matAutocomplete">
+                                                            <mat-option *ngFor="let option of filteredOptions | async"
+                                                                value="{{option.case_no}}"
+                                                                (click)="getCaseNo(option?._id)">
+                                                                {{option.case_no}}
+                                                            </mat-option>
+                                                        </mat-autocomplete>
+
+                                                    </mat-form-field>
+
+                                                
+
+                                                    <span class="input-group-btn">
+                                                        <button data-toggle="modal" data-target="#basicModal"
+                                                            class="btn btn-org" type="button"><i class="fa fa-search"
+                                                                aria-hidden="true"></i> SEARCH</button>
+                                                    </span>
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- <div class="input-group">
+                        <span class="input-group-btn adv-btn">
+                            <button (click)=toggleDisplay() class="btn btn-red" type="button"><i
+                                    class="fa fa-cog" aria-hidden="true"></i> ADVANCE SEARCH <i
+                                    class="fa fa-1x fa-angle-right"></i>
+                            </button>
+                        </span>
+                    </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="showData===false">
+
+                    <div class="wrapper-md">
+                        <div class="b-a">
+                            <div class="panel-body top-tbl">
+                                <div class="row">
+                                    <div class="col-md-12 table-resp">
+                                        <table class="table border-top">
+                                            <thead>
+                                                <tr>
+                                                    <th>Case No. / Court</th>
+                                                    <th style="width:20%;">Petitioner/वादीगण</th>
+                                                    <th style="width:20%;">Respondent/प्रतिवादीगण</th>
+                                                    <th>Case Prayer</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let data of casedata.resultData;" class="">
+                                                    <td>
+                                                        <span>{{data?.case_no}}</span> /
+                                                        <span>{{data?.case_court_id?.court_name}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <ul>
+                                                            <li *ngFor="let index of data?.case_petitioner_id"
+                                                                style="margin: 0 0 -2px;">
+                                                                {{ index.name }}
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <ul>
+                                                            <li *ngFor="let index of data?.case_respondent_id"
+                                                                style="margin: 0 0 -2px;">
+                                                                {{ index.res_name }}
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td>{{data?.case_prayer }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrapper-md" style="padding-top:0px;">
+                        <div class="panel b-a">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                                        <div class="head-title">
+                                            <h4>Case Detail Information </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bb"></div>
+                            <div class="panel-body">
+                                <form [formGroup]="saveForm" (ngSubmit)="clickFunction()">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Hearing Date / सुनवाई <span
+                                                        class="text-danger">*</span></label>
+                                                <input class="form-control" type="date" formControlName="hearing_date">
+
+                                                <input class="form-control" type="hidden" formControlName="case_id">
+
+                                                <div *ngIf="f.hearing_date.errors && isValidFormSubmitted"
+                                                    class="text-danger text-left mb-1">
+                                                    <div *ngIf="f.hearing_date.errors">This field is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Next Hearing Date / अगली सुनवाई</label>
+                                                <input class="form-control" type="date"
+                                                    formControlName="next_hearing_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Court Order Date / आदेश दिनांक</label>
+                                                <input class="form-control" type="date"
+                                                    formControlName="court_order_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Next Hearing Date / अगली सुनवाई</label>
+                                                <div class="form-control" style="background: #ebebeb;">
+                                                    <a style="text-decoration: underline; color: blue;">Fetch Cause
+                                                        List</a>
+                                                </div>
+                                            </div>
+                                            <a style="float: right; text-decoration: underline; color: blue;"
+                                                data-toggle="modal" data-target="#docModal">Attach Cause List</a>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input_grp form-group">
+                                                <label for="">Hearing Details / सुनवाई विवरण</label>
+                                                <textarea class="form-control"
+                                                    formControlName="hearing_details"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input_grp form-group">
+                                                <label for="">Expected Action Type / अपेक्षित कार्यवाही प्रकार <span
+                                                        class="text-danger">*</span> </label>
+                                                <select class="form-control select-language form-control-sm validation"
+                                                    formControlName="expected_action_type">
+                                                    <option value=''>Select</option>
+                                                    <option *ngFor="let data of getDataExpectedAction"
+                                                        value={{data._id}}>
+                                                        {{data.action_name}}</option>
+                                                </select>
+
+                                                <div *ngIf="f.expected_action_type.errors && isValidFormSubmitted"
+                                                    class="text-danger text-left mb-1">
+                                                    <div *ngIf="f.expected_action_type.errors">This field is required
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input_grp form-group">
+                                                <label for="">Compliance Action Detail / अनुपालन कार्यवाही
+                                                    प्रकार</label>
+                                                <textarea class="form-control"
+                                                    formControlName="compliance_action"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Compliance Action Start Date / अनुपालन कार्यवाही प्रारंभ
+                                                    तिथि</label>
+                                                <input class="form-control" type="date"
+                                                    formControlName="compliance_action_start_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Compliance Action End Date / अनुपालन कार्यवाही समाप्ति
+                                                    तिथि</label>
+                                                <input class="form-control" type="date"
+                                                    formControlName="compliance_action_end_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Case Status / वाद अद्यतन स्थिति <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="form-control select-language form-control-sm validation"
+                                                    formControlName="case_status_id">
+                                                    <option value=''>Select</option>
+                                                    <option *ngFor="let data of getDataCS" value={{data._id}}>
+                                                        {{data.case_status_name}}</option>
+                                                </select>
+
+                                                <div *ngIf="f.case_status_id.errors && isValidFormSubmitted"
+                                                    class="text-danger text-left mb-1">
+                                                    <div *ngIf="f.case_status_id.errors">This field is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Landmark Judgement / ऐतिहासिक निर्णय</label>
+                                                <div class="">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" formControlName="land_mark_judgement"
+                                                            name="land_mark_judgement" value="Yes">Yes
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" formControlName="land_mark_judgement"
+                                                            name="land_mark_judgement" value="No" checked>No
+                                                    </label>
+                                                </div>
+                                                <a style="float: right; text-decoration: underline; color: blue;"
+                                                    data-toggle="modal" data-target="#docModal">Attach
+                                                    Document</a>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input_grp form-group">
+                                                <label for="">Club this case</label>
+                                                <select class="form-control select-language form-control-sm validation"
+                                                    formControlName="club_case" (click)="GetCaseNoByRefCaseId($event)">
+                                                    <option value=''>Select</option>
+                                                    <option *ngFor="let data of getCaseNoData" value={{data._id}}>
+                                                        {{data.case_no}}
+                                                    </option>
+                                                </select>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" id="tabs-details">
+                                            <ul class="nav nav-tabs detail-tab">
+                                                <li class="active"><a data-toggle="tab" href="#home">Grid View</a></li>
+                                                <li><a data-toggle="tab" href="#menu1">Time Line View</a></li>
+                                            </ul>
+                                            <div class="tab-content" style="padding:0%;">
+                                                <div id="home" class="tab-pane fade in active">
+                                                    <div class="input_grp form-group">
+                                                        <div class="d-flex">
+                                                            <h5>Case Timeline</h5>
+                                                        </div>
+                                                    </div>
+                                                    <table class="table doc">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>S. No.</th>
+                                                                <th>Hearing Date</th>
+                                                                <th>Court Order Date</th>
+                                                                <th>Expected action type</th>
+                                                                <th>Case Status</th>
+                                                                <th>Start Date</th>
+                                                                <th>End Date</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr
+                                                                *ngFor="let data of casedata?.detailsData; let i= index;">
+                                                                <td scope="row">{{ [i+1] }}</td>
+                                                                <td>{{data?.hearing_date | date}}</td>
+                                                                <td>{{data?.court_order_date | date}}</td>
+                                                                <td>{{data?.expected_action_type?.action_name}}</td>
+                                                                <td>{{data?.case_status_id?.case_status_name}}</td>
+                                                                <td>{{data?.compliance_action_start_date | date}}</td>
+                                                                <td>{{data?.compliance_action_end_date | date}}</td>
+                                                                <td>
+                                                                    <div class="btn-group dropdown">
+                                                                        <button
+                                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                                            data-toggle="dropdown"
+                                                                            aria-expanded="false"><i
+                                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                                            <span class=""><i
+                                                                                    class="fa fa-caret-down"></i></span></button>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li><a href="/case-details-update/{{data?._id}}"
+                                                                                    target="_blank"><i
+                                                                                        class="fa fa-edit"></i> Edit
+                                                                                </a></li>
+                                                                            <li></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div id="menu1" class="tab-pane fade">
+                                                    <h5 for="">Case Timeline</h5>
+                                                    <div style="border: 1px solid #bfbfbf;">
+                                                        <div class="order">
+                                                            <!-- <h5>Court Order Date <span><a>Hearing Date</a></span></h5> -->
+                                                            <ul class="nav nav-tabs">
+                                                                <li class="active"><a data-toggle="tab"
+                                                                        href="#OrderDate">Court Order Date</a></li>
+                                                                <li><a data-toggle="tab" href="#Hearing">Hearing
+                                                                        Date</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="continer">
+                                                            <div class="tab-content">
+                                                                <div id="OrderDate" class="tab-pane fade in active">
+                                                                    <div class="timeline-block timeline-block-right" *ngFor="let data of casedata?.detailsData ; let i= index;">
+                                                                        <div class="row">
+                                                                            <div class="col-md-2">
+                                                                                <div class="timeline-date">
+                                                                                    <div class="input_grp form-group timeline-main">
+                                                                                        <label for="">Court Order
+                                                                                            Date/न्यायालय आदेश
+                                                                                            दिनांक</label>
+                                                                                        <h4>{{data?.court_order_date |
+                                                                                            date }}</h4>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <div class="marker active container"><span>{{
+                                                                                        [i+1] }}</span></div>
+                                                                            </div>
+                                                                            <div class="col-md-9">
+                                                                                <div class="timeline-content">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Court/मा0
+                                                                                                    न्यायालय</label>
+                                                                                                <h4>{{data?.case_id?.case_court_id?.court_name}}
+                                                                                                </h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Section/अनुभाग</label>
+                                                                                                <h4>{{data?.case_id?.case_section_id?.section_name}}
+                                                                                                </h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Action
+                                                                                                    Type/कार्यवाही</label>
+                                                                                                <h4>{{data?.expected_action_type?.action_name}}
+                                                                                                </h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Hearing
+                                                                                                    Date/सुनवाई</label>
+                                                                                                <h4>{{data?.hearing_date
+                                                                                                    | date}}</h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Compliance
+                                                                                                    Start Date/
+                                                                                                    अनुपालन
+                                                                                                    प्रारंभ तिथि</label>
+                                                                                                <h4>{{data?.compliance_action_start_date
+                                                                                                    | date}}</h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Compliance
+                                                                                                    End
+                                                                                                    Date/अनुपालन
+                                                                                                    समाप्ति तिथि</label>
+                                                                                                <h4>{{data?.compliance_action_end_date
+                                                                                                    | date}}</h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Action
+                                                                                                    Detail/कार्यवाही
+                                                                                                    अभ्युक्ति</label>
+                                                                                                <h4>{{data?.compliance_action}}
+                                                                                                </h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <!-- <label for="">Case Document/मा0
+                                                                                                                    न्यायालय</label> -->
+                                                                                                <!-- <h4 *ngIf="this.data?.case_document">
+                                                                                                                    <a  href="https://lcms-staging.evalue8.info/{{this.data?.case_document}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"> <i class="fa fa-eye"></i> View Document  
+                                                                                                                    </a>
+                                                                                                                </h4>
+                                                                                                                <h4 *ngIf="!this.data?.case_document"></h4> -->
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <!-- <label
+                                                                                                                    style="font-size: 10px; text-decoration: underline;"><a>VIEW
+                                                                                                                        TRANSLATION</a></label> -->
+                                                        
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="Hearing" class="tab-pane fade">
+                                                                    <div class="timeline-block timeline-block-right" *ngFor="let data of casedata?.detailsData ; let i= index;">
+                                                                        <div class="row">
+                                                                            <div class="col-md-2">
+                                                                                <div class="timeline-date">
+                                                                                    <div class="input_grp form-group timeline-main">
+                                                        
+                                                                                        <label for="">Hearing
+                                                                                            Date/सुनवाई</label>
+                                                                                        <h4>{{data?.hearing_date
+                                                                                            | date}}</h4>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <div class="marker active container"><span>{{
+                                                                                        [i+1] }}</span></div>
+                                                                            </div>
+                                                                            <div class="col-md-9">
+                                                                                <div class="timeline-content">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Court/मा0
+                                                                                                    न्यायालय</label>
+                                                                                                <h4>{{data?.case_id?.case_court_id?.court_name}}
+                                                                                                </h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Section/अनुभाग</label>
+                                                                                                <h4>{{data?.case_id?.case_section_id?.section_name}}
+                                                                                                </h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Action
+                                                                                                    Type/कार्यवाही</label>
+                                                                                                <h4>{{data?.expected_action_type?.action_name}}
+                                                                                                </h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Court Order
+                                                                                                    Date/न्यायालय आदेश
+                                                                                                    दिनांक</label>
+                                                                                                <h4>{{data?.court_order_date |
+                                                                                                    date }}</h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Compliance
+                                                                                                    Start Date/
+                                                                                                    अनुपालन
+                                                                                                    प्रारंभ तिथि</label>
+                                                                                                <h4>{{data?.compliance_action_start_date
+                                                                                                    | date}}</h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Compliance
+                                                                                                    End
+                                                                                                    Date/अनुपालन
+                                                                                                    समाप्ति तिथि</label>
+                                                                                                <h4>{{data?.compliance_action_end_date
+                                                                                                    | date}}</h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <label for="">Action
+                                                                                                    Detail/कार्यवाही
+                                                                                                    अभ्युक्ति</label>
+                                                                                                <h4>{{data?.compliance_action}}
+                                                                                                </h4>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <!-- <label for="">Case Document/मा0
+                                                                                                                                                                                    न्यायालय</label> -->
+                                                                                                <!-- <h4 *ngIf="this.data?.case_document">
+                                                                                                                                                                                    <a  href="https://lcms-staging.evalue8.info/{{this.data?.case_document}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"> <i class="fa fa-eye"></i> View Document  
+                                                                                                                                                                                    </a>
+                                                                                                                                                                                </h4>
+                                                                                                                                                                                <h4 *ngIf="!this.data?.case_document"></h4> -->
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="input_grp form-group timeline-main">
+                                                                                                <!-- <label
+                                                                                                                                                                                    style="font-size: 10px; text-decoration: underline;"><a>VIEW
+                                                                                                                                                                                        TRANSLATION</a></label> -->
+                                                        
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                        
+                                                            <!-- <div class="timeline-block timeline-block-right active">
+                                                                                        <div class="marker active"><span>2</span></div>
+                                                                                        <div class="timeline-content">
+                                                                                            <h3>Third Year</h3>
+                                                                                            <span>Some work experience</span>
+                                                                                        </div>
+                                                                                    </div> -->
+                                                        </div>
+                                                        <!-- <lib-ngx-vertical-timeline [items]="items"></lib-ngx-vertical-timeline> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 table-resp">
+                                            <div class="input_grp form-group">
+                                                <div class="d-flex">
+                                                    <h5>Case Documents</h5>
+                                                    <a data-toggle="modal" data-target="#docModal"
+                                                        class="custon-task"><i class="fa fa-paperclip"
+                                                            aria-hidden="true"></i> Attach</a>
+                                                </div>
+                                            </div>
+                                            <table class="table doc">
+                                                <thead>
+                                                    <tr>
+                                                        <th>S. No.</th>
+                                                        <th>Document Type</th>
+                                                        <th>Document Name</th>
+                                                        <th>Attached by</th>
+                                                        <th>Date Added</th>
+                                                        <th>Attach Document </th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let data of casedata?.docData; let i= index;">
+                                                        <td scope="row">{{[i+1]}}</td>
+                                                        <td>{{data?.case_doc_type}}</td>
+                                                        <td>{{data?.case_doc_name}}</td>
+                                                        <td>{{data?.case_doc_attached_by}}</td>
+                                                        <td>{{data?.created_at | date}}</td>
+                                                        <td *ngIf="this.data?.case_document">
+                                                            <a href="https://lcms-staging.evalue8.info/{{this.data?.case_document}}"
+                                                                target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm
+                                        "> <i class="fa fa-eye"></i> View Document
+                                                                <!-- <img  src="https://lcms.evalue8.info/uploads/{{this.caseData?.case_document}}"  style="width: 75px;height: 43px;"> -->
+                                                            </a>
+                                                        </td>
+                                                        <td *ngIf="!this.data?.case_document"></td>
+                                                        <td>
+                                                            <div class="btn-group dropdown">
+                                                                <button class="btn btn-default w-xxs btn-sm r-2x"
+                                                                    data-toggle="dropdown" aria-expanded="false"><i
+                                                                        class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                                    <span class=""><i
+                                                                            class="fa fa-caret-down"></i></span></button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li><a href="/case-document-update/{{data?._id}}"
+                                                                            target="_blank"><i class="fa fa-edit"></i>
+                                                                            Edit </a></li>
+                                                                    <li></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 table-resp">
+                                            <div class="input_grp form-group">
+                                                <div class="d-flex">
+                                                    <h5>Case Task</h5>
+                                                    <a data-toggle="modal" data-target="#taskModal"
+                                                        class="custon-task"><i class="fa fa-tasks"
+                                                            aria-hidden="true"></i> Add Task</a>
+                                                </div>
+                                            </div>
+                                            <table class="table doc">
+                                                <thead>
+                                                    <tr>
+                                                        <th>S. No.</th>
+                                                        <th>Task Type</th>
+                                                        <th>Task Subject</th>
+                                                        <th>Task Name</th>
+                                                        <th>Task Owner</th>
+                                                        <th>Task Due Date</th>
+                                                        <th>Task Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let data of casedata?.taskData; let i= index;">
+                                                        <td scope="row">{{ [i+1] }}</td>
+                                                        <td>{{data?.case_task_type?.task_type_name}}</td>
+                                                        <td>{{data?.case_task_subject}}</td>
+                                                        <td>{{data?.case_task_name}}</td>
+                                                        <td>{{data?.case_task_owner?.username}}</td>
+                                                        <td>{{data?.case_task_duedate | date}}</td>
+                                                        <td *ngIf="this.data?.status ==='Complete'"><a
+                                                                class="add-model status_Pending status_Complete">{{data?.status}}</a>
+                                                        </td>
+
+                                                        <td *ngIf="this.data?.status !='Complete'"><a
+                                                                class="add-model status_Pending">{{data?.status}}</a>
+                                                        </td>
+
+                                                        <!-- <td *ngIf="this.data?.status ==='Complete'" data-toggle="modal" data-target="#TaskStatus" type="submit" >
+                                        <a class="add-model btn btn-success btn-sm" data-id="{{data?._id}}"   (click)="showModalTask(data?._id)"> {{data?.status}}</a>
+                                    </td>
+                                    <td *ngIf="this.data?.status !='Complete'" data-toggle="modal" data-target="#TaskStatus" type="submit" > 
+                                        <a class="add-model btn btn-info btn-sm" data-id="{{data?._id}}"   (click)="showModalTask(data?._id)"> {{data?.status}}</a>
+                                    </td> -->
+                                                        <td>
+                                                            <div class="btn-group dropdown">
+                                                                <button class="btn btn-default w-xxs btn-sm r-2x"
+                                                                    data-toggle="dropdown" aria-expanded="false"><i
+                                                                        class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                                    <span class=""><i
+                                                                            class="fa fa-caret-down"></i></span></button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li><a href="/case-task-update/{{data?._id}}"
+                                                                            target="_blank"><i class="fa fa-edit"></i>
+                                                                            Edit </a></li>
+                                                                    <li></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="input_grp form-group">
+                            <div class="d-flex">
+                                <h5>Club Case</h5>
+                            </div>
+                        </div>
+                        <table class="table doc">
+                            <thead>
+                                <tr>
+                                    <th>S. No.</th>
+                                    <th>Club Case No</th>
+                                    <th>Court</th>
+                                    <th>Case Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  *ngFor="let data of casedata?.detailsData; let i= index;">
+                                    <td scope="row">{{ [i+1] }}</td>
+                                    <td>{{data?.club_case?.case_no}}</td>
+                                    <td>{{data?.club_case?.case_court_id?.court_name}}</td>
+                                    <td>{{data?.club_case?.case_year}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="submit-detail">
+                                                <button class="btn btn-primary" type="submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- .................................Case Task Modal.................................... -->
+
+<div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true"
+    #taskModal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Add Task</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="saveFormTask" (ngSubmit)="clickFunctionTask()" (onclick)="hearing('{{data?._id}}')">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Task Type <span class="text-danger">*</span></label>
+                                <!-- <input class="form-control" type="text" placeholder="Enter.."
+                formControlName="case_task_type"> -->
+
+                                <select class="form-control select-language form-control-sm validation"
+                                    formControlName="case_task_type">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataTaskType" value={{data._id}}>
+                                        {{data.task_type_name}}</option>
+
+                                </select>
+                                <div *ngIf="task.case_task_type.errors && isValidFormSubmittedTask"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="task.case_task_type.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Task Name <span class="text-danger">*</span> </label>
+                                <input class="form-control" type="hidden" formControlName="task_case_id"
+                                    [ngModel]="this.caseid">
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="case_task_name">
+
+                                <div *ngIf="task.case_task_name.errors && isValidFormSubmittedTask"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="task.case_task_name.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Task Subject </label>
+                                <!-- <select class="form-control select-language form-control-sm validation"
+                    formControlName="case_task_district">
+                    <option value=''>Select</option>
+                    <option *ngFor="let data of getDataDist" value={{data._id}}>{{data.district}}
+                    </option>
+
+                </select> -->
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="case_task_subject">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Task Owner <span class="text-danger">*</span></label>
+                                <!-- <input class="form-control" type="text" placeholder="Enter.."
+                    formControlName="case_task_owner"> -->
+                                <select class="form-control select-language form-control-sm validation"
+                                    formControlName="case_task_owner">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataUser" value={{data._id}}>{{data.username}}
+                                    </option>
+                                </select>
+                                <div *ngIf="task.case_task_owner.errors && isValidFormSubmittedTask"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="task.case_task_owner.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Task Due Date</label>
+                                <input class="form-control" type="date" placeholder="Enter.."
+                                    formControlName="case_task_duedate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- .................................Case Document Modal.................................... -->
+
+<div class="modal fade" id="docModal" tabindex="-1" role="dialog" aria-labelledby="largeModal1" aria-hidden="true"
+    #docModal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel1">Attach Document</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="saveFormDoc" (ngSubmit)="clickFunctionDoc()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Document Type </label>
+                                <input class="form-control" type="hidden" [ngModel]="this.caseid"
+                                    formControlName="doc_case_id">
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="case_doc_type">
+
+                                <!-- <div *ngIf="doc.case_doc_type.errors && isValidFormSubmittedTask"
+                class="text-danger text-left mb-1">
+                <div *ngIf="doc.case_doc_type.errors">This field is required</div>
+            </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Document Name </label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="case_doc_name">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- <div class="col-md-6">
+        <div class="input_grp form-group">
+            <label for="">Attached by</label>
+            <input class="form-control" type="hidden" placeholder="Enter.."
+            formControlName="case_doc_attached_by" [attr.disabled]="true">
+            
+        </div>
+    </div> -->
+                        <input class="form-control" type="hidden" placeholder="Enter.."
+                            formControlName="case_doc_attached_by" [attr.disabled]="true">
+
+                        <!-- <div class="col-md-6">
+        <div class="input_grp form-group">
+            <label for="">Doc Size</label>
+            <input class="form-control" type="text" placeholder="Enter.."
+                formControlName="case_doc_size">
+        </div>
+    </div> -->
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Attach Document</label>
+                                <input class="form-control" type="file" id="myfile" name="myfile"
+                                    (change)="uploadDocument($event)">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <!-- <div class="col-md-6">
+        <div class="input_grp form-group">
+            <label for="">Attach Document</label>
+            <input class="form-control" type="file" placeholder="Enter.."
+                formControlName="case_document">
+        </div>
+    </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ..........................................Case task status POPUP MODAL............................ -->
+
+<div class="modal fade" id="TaskStatus" tabindex="-1" role="dialog" aria-labelledby="largeModal2" aria-hidden="true"
+    #TaskStatus>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel2">Task Status </h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="saveFormTaskStatus" (ngSubmit)="clickFunctionStatusOfTask()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Task Status </label>
+                                <!-- <input class="form-control" type="date" formControlName="status
+                ">   {{this.id}} -->
+                                <select class="form-control select-language form-control-sm validation"
+                                    formControlName="status">
+                                    <option value=''>Select</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Complete">Complete</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

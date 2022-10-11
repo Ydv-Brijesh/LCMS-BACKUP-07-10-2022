@@ -1,0 +1,250 @@
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class="m-n font-thin text-white">Add Vendor</h3>
+                </div>
+            </div>
+        </div>
+       
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <form role="form" [formGroup]="vendorForm" autocomplete="off">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <legend>
+                                    <span class="font-weight-600">Vendor Information</span>
+                                </legend>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Vendor type</label>
+                                    <select formControlName="vendorType" class="form-control model_code" name="model_code">
+                                        <option value=''>Select Vendor Type</option>
+                                            <option value="External Party">External Party</option>
+                                            <option value="SRP">SRP</option>
+                                            <option value="SHG">SHG</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Vendor Service Category</label>
+                                    <select formControlName="vendorService" class="form-control model_code" name="model_code">
+                                        <option value=''>Select Vendor Service Category</option>
+                                            <option value="TAXI">TAXI</option>
+                                            <option value="LODGING">LODGING</option>
+                                            <option value="FOODING">FOODING</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Vendor Service Sub Category</label>
+                                    <select formControlName="vendorSubService" class="form-control model_code" name="model_code">
+                                        <option value=''>Select Vendor Service Sub Category</option>
+                                            <option value="Local Travel">Local Travel</option>
+                                            <option value="Tent">Tent</option>
+                                            <option value="Local Lodging">Local Lodging</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Vendor Name</label>
+                                    <input formControlName="vendorName" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Name of vendor's Father/husband</label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Vendor's Date of Birth</label>
+                                    <input formControlName="vendorDob" type="date" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">PAN Number of Vendor</label>
+                                    <input formControlName="vendorPanNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">GST Number of Vendor</label>
+                                    <input formControlName="vendorGstNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">GST Document</label>
+                                    <input type="file" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Aadhar Number of vendor</label>
+                                    <input formControlName="vendorAadharNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">TAN Number of Vendor</label>
+                                    <input  formControlName="vendorTanNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">TIN Number of Vendor</label>
+                                    <input formControlName="vendorTinNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Service Tax Number of Vendor</label>
+                                    <input formControlName="vendorServiceTaxNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Address 1</label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Address 2</label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Address 3</label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">City</label>
+                                    <select class="form-control model_code" name="model_code">
+                                        <option value=''>Select City</option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Country</label>
+                                    <select class="form-control model_code" name="model_code">
+                                        <option value=''>Select Country</option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <p>add-vendor works!</p>
+                                            <option value="">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">State</label>
+                                    <select class="form-control model_code" name="model_code">
+                                        <option value=''>Select State</option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">District</label>
+                                    <select class="form-control model_code" name="model_code">
+                                        <option value=''>Select District</option>
+                                            <option value="">1</option>
+                                            <p>add-vendor works!</p>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Pincode </label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Mobile of vendor</label>
+                                    <input formControlName="vendorMobileNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Phone of vendor</label>
+                                    <input formControlName="vendorPhoneNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Email of vendor</label>
+                                    <input formControlName="vendorEmail" type="email" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Bank of vendor</label>
+                                    <select formControlName="vendorBankName" class="form-control model_code" name="model_code">
+                                        <option value=''>Select Bank</option>
+                                            <option value="AXIS BANK">AXIS BANK</option>
+                                            <option value="ALLAHABAD BANK">ALLAHABAD BANK</option>
+                                            <option value="CANARA BANK">CANARA BANK</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Branch IFSC Code</label>
+                                    <select formControlName="vendorBankIfscCode" class="form-control model_code" name="model_code">
+                                        <option value=''>Select IFSC Code</option>
+                                            <option value="AXI236548D">AXI236548D</option>
+                                            <option value="ALLA0210580">ALLA0210580</option>
+                                            <option value="CNRB0000363">CNRB0000363</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Account Number of vendor</label>
+                                    <input formControlName="vendorAccountNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn m-b-xs btn-md btn-success"  (click)="onSubmit()">Save</a>
+                                <a class="btn m-b-xs btn-md btn-primary" (click)="onSubmit()">Save and New</a>
+                                <a class="btn m-b-xs btn-md btn-default"  (click)="cancel()">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+      <!-- main header -->
+      <div class="bg-blue lter b-b wrapper-md">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12">
+            <h3 class="m-n font-thin text-white">Agency Component</h3>
+          </div>
+          <div class="col-sm-6 text-right poppins hidden-xs">
+            <button class="btn btn-sm text-10 btn-addNew m-r-xs report_csv_triger"  (click)="addNewAgency()" ><i class="fa fa-plus"></i> Create New Agency Component </button>
+          </div>
+        </div>
+      </div>
+      <!-- / main header -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card no-shadow">
+            <div class="tab-content bg-seashell">
+              <div role="tabpanel" class="tab-pane active g-py-0">
+                <div class="row row-xs">
+                  <div class="row" style="margin-top: 1rem; margin-bottom: .5rem;">
+                    <div>
+                      <div class="col-md-3">
+                        <label class="font-bold"><span>0</span> Selected: </label>
+                        <div class="btn-group g-px-12 dropdown">
+                          <button class="btn btn-default btn-sm btn-bg dropdown-toggle r-2x" data-toggle="dropdown"> <span
+                              class="dropdown-label g-px-5">Bulk
+                              actions</span> <span class="caret"></span> </button>
+                          <ul class="dropdown-menu text-left text-sm">
+                            <li><a class="in-stock-open"><i class="fa fa-check"></i> Approve </a></li>
+                            <li><a class="in-transit-open"><i class="fa fa-close"></i> Reject </a></li>
+                            <li><a class="in-hold-open"><i class="fa fa-lock"></i> Lock </a> </li>
+                            <li><a class="in-location-open"><i class="fa fa-trash-o"></i> Delete</a></li>
+                          </ul>
+                          <button type="submit" class="btn btn-default btn-sm custom_search"> Apply</button>
+                        </div>
+                        <div class="btn-group dropdown"></div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="input-group">
+                          <input type="text" class="form-control input-sm " placeholder="Search.......">
+                          <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default btn-sm "> <i class="fa fa-search"></i></button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="dropzone dropzone-previews dz-clickable" id="my-awesome-dropzone">
+                          <div class="dz-default dz-message"><span>Upload Files</span> </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2 text-xs-right">
+                        <label>
+                          <select class="form-control input-sm">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="500">500</option>
+                            <option value="50000">All</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <table class="table bg-white">
+                    <thead>
+                      <tr role="row">
+                        <th class="text-center"><input type="checkbox" ></th>
+                        <th>Code</th>
+                        <th> Agency Component Name</th>
+                        <th class="text-center">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody >
+                    <tr *ngFor="let item of agency; let i = index "  (click)="addNewAgency()">
+                        <td class="text-center">
+                          <div>
+                            <label>
+                              <input type="checkbox">
+                            </label>
+                          </div>
+                        </td> 
+                        <td><span class="font-bold text-theme">{{item.agencyCode}}</span></td>
+                        <td><span class="font-bold text-theme">{{item.agencyName}}</span>
+
+                        </td>
+                  
+                        <td class="text-center">
+                          <div class="btn-group dropdown">
+                            <button class="btn btn-default w-xxs btn-sm r-2x" data-toggle="dropdown"
+                              aria-expanded="false"><i class="fa fa-cog g-px-5  text-info text-sm"></i> <span class=""><i
+                                  class="fa fa-caret-down"></i></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                              <li><a href="#"><i class="fa fa-trash-o"></i> Delete </a></li>
+                              <li><a href="#"><i class="fa fa-lock"></i> Lock </a> </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr> 
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  
+  </div>

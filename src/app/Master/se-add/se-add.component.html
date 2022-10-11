@@ -1,0 +1,89 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <!-- <h3 class="m-n font-thin text-white">Dashboard</h3> -->
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Create SE
+                    </h3>
+                </div>
+                <!-- <div class="col-sm-6 col-xs-12">
+                    <div class="button_group">
+                        <a style="border-color:#ddd;" href="">Cancel</a>
+                        <a style="border-color:#008000;" href="">Save and New</a>
+                        <a style="border-color:#ffffff;" href="">Save</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                            <div class="head-title">
+                                <h4>SE Information</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <form [formGroup]="saveForm" (ngSubmit)="clickFunction()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Organization / CE <span class="text-danger">*</span></label>
+                                    <!-- <input class="form-control" type="text" placeholder="Enter.." formControlName="sub_org_id"> -->
+                                    <select class="form-control select-language form-control-sm validation"
+                                    formControlName="sub_org_id">
+                                        <option value=''>
+                                            Select
+                                        </option>
+                                        <option *ngFor="let data of getData"  
+                                        value={{data._id}}>{{data.sub_org_name}}  </option>
+                                                                                
+                                    </select>
+                                    <div *ngIf="f.sub_org_id.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                        <div *ngIf="f.sub_org_id.errors">This field is required</div>
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">SE Name <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" placeholder="Enter.." formControlName="se_name">
+                                    <div *ngIf="f.se_name.errors && isValidFormSubmitted"class="text-danger text-left mb-1">
+                                        <div *ngIf="f.se_name.errors">This field is required</div>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <div class="button_group_fotter">
+                                       <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

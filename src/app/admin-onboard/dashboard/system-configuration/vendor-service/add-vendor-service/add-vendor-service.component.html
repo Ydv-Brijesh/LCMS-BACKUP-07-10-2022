@@ -1,0 +1,55 @@
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class="m-n font-thin text-white">Add Vendor Service Category</h3>
+                </div>
+            </div>
+        </div>
+       
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <form [formGroup]="vendorService" action="" autocomplete="off">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <legend>
+                                    <span class="font-weight-600">Vendor Service Category Information</span>
+                                </legend>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Vendor Service Category Code</label>
+                                    <input formControlName="vendorServiceCode" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Vendor Service Category Name</label>
+                                    <input formControlName="vendorServiceName" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Vendor Service Category Description</label>
+                                    <input formControlName="vendorServiceDescription" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn m-b-xs btn-md btn-success" (click)="onSubmit()">Save</a>
+                                <a class="btn m-b-xs btn-md btn-primary" (click)="onSubmit()">Save and New</a>
+                                <a class="btn m-b-xs btn-md btn-default" (click)="cancel()">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

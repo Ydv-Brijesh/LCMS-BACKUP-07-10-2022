@@ -1,0 +1,217 @@
+.main-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F9F9F9;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative; 
+  }
+
+  .main-bg .leftContent img {
+    width: 25%;
+  }
+
+  .main-bg .leftContent h3 {
+    font-size: 50px;
+    font-weight: 700;
+    color: #111;
+    margin: 18px 0;
+    position: relative;
+  }
+
+  .main-bg .leftContent h6 {
+    font-size: 30px;
+    font-weight: 400;
+    color: #111;
+  }
+
+  .leftContent .icon-img img {
+    width: 100%;
+    position: relative;
+    left: -260px;
+    width: 200px;
+    width: 200px;
+    top: -40px;
+  }
+
+  .trooLogoSec {
+    display: flex;
+  }
+
+  .leftContent .trooLogoSec .troo-Logo img {
+    width: 270px;
+    padding-right: 1.3rem;
+  }
+
+  .trooLogoSec {
+    margin-top: 5rem;
+  }
+
+  .information {
+    border-left: 2px solid rgb(153, 151, 151);
+  }
+
+  .information ul {
+    list-style-type: none;
+    padding-left: 1.5rem;
+  }
+
+  .information ul li {
+    font-size: 12px;
+  }
+
+  .copyright {
+    background: #fff;
+    border-radius: 10px;
+    padding: 6px 10px;
+    border: 1px solid #b3b3b3;
+    margin-top: 40px;
+    width: 70%;
+  }
+
+  .copyright p {
+    margin-bottom: 0;
+    color: #6c6b6b;
+    font-size: 13px;
+  }
+
+  .RightContent .logo img {
+    width: 100%;
+  }
+
+  .logo {
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .loginForm {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  .loginForm .login h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 0px;
+    color: #111;
+  }
+
+  .loginForm p {
+    color: #4b4b4b;
+    margin: 15px 0;
+    font-size: 1.5rem;
+  }
+
+  .loginForm .loginField .form-control {
+    height: 45px;
+    margin-top: 0px;
+    color: #212529;
+    background-color: #f3f3f3;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .loginForm .loginField .form-control:focus {
+    color: #212529;
+    background-color: #f3f3f3;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+  }
+
+  .RememberForgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .RememberForgot p {
+    margin-top: 0;
+  }
+
+  .Remember .form-check-input:focus {
+    border-color: #bdbcbc;
+    outline: 0;
+    box-shadow: none;
+  }
+
+  .Remember input[type=checkbox] {
+    margin: -1px 3px 0px;
+    vertical-align: middle;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background-color: #738f04;
+    border-color: #748f03;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #637904;
+    border-color: #637904;
+}
+
+  .LoginBTN:hover {
+    background: #af110e;
+  }
+
+  .loginForm h6 {
+    margin-top: 15px;
+  }
+
+  .loginForm h6 span a {
+    color: #F2221F;
+  }
+
+  .customBtn {
+    font-size: 13px;
+    background: #fff;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .main-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F9F9F9;
+    height: auto;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+  }
+    .leftContent {
+      display: none;
+    }
+    .RightContent{
+      width: 100%;
+    }
+    .logo {
+      width: 20rem;
+      margin: 0px auto;
+    }
+
+    .loginForm {
+      width: 90%;
+      margin: 10px auto;
+    }
+  }

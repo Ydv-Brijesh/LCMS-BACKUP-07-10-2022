@@ -1,0 +1,304 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+
+        <div class="wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h4 class="m-n font-bold "><i class="fa fa-angle-left" aria-hidden="true"></i> Assessors View List
+                    </h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 header-btn">
+                        <div class="col-md-6" style="padding-right:0"><label class="font-bold"><span
+                                    id="selected_checkbox_count_vehicle">0</span> Selected</label>
+                            <!-- <div class="btn-group g-px-12 dropdown"> <button
+                  class="btn btn-default btn-sm btn-bg dropdown-toggle r-2x" data-toggle="dropdown"> <span
+                    class="dropdown-label g-px-5">Update Status&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-down"
+                      aria-hidden="true"></i></span></button>
+                <ul class="dropdown-menu text-left text-sm">
+                  <li><a class="in-stock-open"><i class="fa fa-arrow-down"></i> Stock </a></li>
+                  <li><a class="in-transit-open"><i class="fa fa-arrow-right"></i> Transit </a></li>
+                  <li><a class="in-hold-open"><i class="fa fa-empire"></i> Damage/Hold </a></li>
+                  <li><a class="in-location-open"><i class="fa fa-map-marker"></i> Location</a></li>
+                </ul>
+              </div> -->
+
+                            <div class="btn-group g-px-12 dropdown"> <button
+                                    class="btn btn-default btn-sm btn-bg dropdown-toggle" data-toggle="dropdown"> <span
+                                        class="dropdown-label " disabled>List View &nbsp;&nbsp;&nbsp;<i
+                                            class="fa fa-caret-down" aria-hidden="true"></i></span></button>
+                                <ul class="dropdown-menu text-left text-sm">
+                                    <li><a class="in-stock-open"> KANBAN </a></li>
+
+                                </ul>
+                            </div>
+
+                            <!-- <div class="btn-group dropdown"> <button class="btn btn-default btn-sm btn-bg dropdown-toggle"
+                  data-toggle="dropdown"> <span class="dropdown-label "> Sort: Group &nbsp;&nbsp;&nbsp;<i
+                      class="fa fa-caret-down" aria-hidden="true"></i></span></button>
+                <ul class="dropdown-menu text-left text-sm">
+                  <li><a class="in-stock-open"><i class="fa fa-arrow-down"></i> Stock </a></li>
+                  <li><a class="in-transit-open"><i class="fa fa-arrow-right"></i> Transit </a></li>
+                  <li><a class="in-hold-open"><i class="fa fa-empire"></i> Damage/Hold </a></li>
+                  <li><a class="in-location-open"><i class="fa fa-map-marker"></i> Location</a></li>
+                </ul>
+              </div> -->
+
+                        </div>
+
+
+
+                        <div class="col-md-3">
+                            <div class="input-group universal-search">
+                                <input type="text" class="form-control" placeholder="Enter keyword to search"
+                                    name="search" autocomplete="off">
+                                <span class="input-group-addon Search-icon"><i class="fa fa-search"
+                                        aria-hidden="true"></i> </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <span><i class="fa fa-cog"></i></span>
+
+                            <div class="btn-group  dropdown create-applicant"> <button
+                                    class="btn btn-default btn-sm btn-bg-m dropdown-toggle r-2x" data-toggle="dropdown">
+                                    <span class="dropdown-label g-px-5"><a routerLink="/admin-assessors"
+                                            routerLinkActive="active" class="app-underline"><span class="txt-clr">Create
+                                                Assessors</span></a></span></button></div>
+
+                            <!-- <div class="btn-group  dropdown xs-m"> <button class="btn btn-default btn-sm btn-bg dropdown-toggle r-2x"
+                  data-toggle="dropdown"> <span class="dropdown-label g-px-5">Action&nbsp;<i class="fa fa-caret-down"
+                      aria-hidden="true"></i></span></button>
+                <ul class="dropdown-menu text-left text-sm">
+                  <li><a class="in-stock-open"><i class="fa fa-arrow-down"></i> Stock </a></li>
+                  <li><a class="in-transit-open"><i class="fa fa-arrow-right"></i> Transit </a></li>
+                  <li><a class="in-hold-open"><i class="fa fa-empire"></i> Damage/Hold </a></li>
+                  <li><a class="in-location-open"><i class="fa fa-map-marker"></i> Location</a></li>
+                </ul>
+              </div> -->
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="col-md-12">
+
+
+
+
+                    <table class="panel panel-default table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Advance Search</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody class="assessors-view">
+
+                            <div class="col-sm-12">
+
+                                <div class="col-md-7" style="padding-right:0">
+
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-3">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button"
+                                                    data-toggle="dropdown">Select Field&nbsp;&nbsp;<i
+                                                        class="fa fa-caret-right"></i></button>
+                                                <ul class="dropdown-menu">
+                                                    <!-- <li class="dropdown-header">Dropdown header 1</li>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Dropdown header 2</li>
+                            <li><a href="#">About Us</a></li> -->
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group email-cls">
+
+                                                <input type="email" class="form-control" id=""
+                                                    aria-describedby="emailHelp" placeholder="Enter keyword">
+                                                <small id="emailHelp" class="form-text text-muted"></small>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button"
+                                                    data-toggle="dropdown">Select Expression &nbsp;&nbsp;<i
+                                                        class="fa fa-caret-right"></i></button>
+                                                <ul class="dropdown-menu">
+                                                    <!-- <li class="dropdown-header">Dropdown header 1</li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Dropdown header 2</li>
+                                <li><a href="#">About Us</a></li> -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-5" style="padding-right:0">
+
+                                    <div class="col-sm-12">
+                                        <div class="btn-group g-px-12 dropdown-xs">
+                                            <button class="btn btn-default btn-sm btn-bg dropdown-toggle r-2x"
+                                                data-toggle="dropdown"> <span class="dropdown-label g-px-5">Add
+                                                    Field</span></button>
+                                            <ul class="dropdown-menu text-left text-sm">
+                                                <!-- <li><a class="in-stock-open"><i class="fa fa-arrow-down"></i> Stock </a></li>  
+                            <li><a class="in-transit-open"><i class="fa fa-arrow-right"></i> Transit </a></li>  
+                            <li><a class="in-hold-open"><i class="fa fa-empire"></i> Damage/Hold </a></li>  
+                            <li><a class="in-location-open"><i class="fa fa-map-marker"></i> Location</a></li>   -->
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="col-md-12">
+
+                    <table class="panel panel-default table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col"><input type="checkbox" /></th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Assessors</th>
+                                <th scope="col">Company</th>
+                                <th scope="col">Contact</th>
+                                <!-- <th scope="col">Domain</th> -->
+                                <th scope="col">Location</th>
+                                <th scope="col">Certificate</th>
+                                <th scope="col">Skill</th>
+                                <th scope="col">Status</th>
+                                <!-- <th scope="col">Assessments</th> -->
+                                <!-- <th scope="col">Remark</th> -->
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="assessors-xss">
+                            <tr>
+                                <th scope="row"><input type="checkbox" /></th>
+                                <td class="applicant-id">
+                                    <span class="app-id">123456</span>
+                                    <p class="icon"><i class="fa fa-calendar calendar-class"
+                                            aria-hidden="true"></i>&nbsp;<span class="abc-cls date">15/02/2022</span></p>
+                                    <p class="icon"><i class="fa fa-calendar calendar-class"
+                                            aria-hidden="true"></i>&nbsp;<span class="abc-cls date">15/02/2022</span></p>
+                                </td>
+                                <td>
+                                    <p class="app-id">Gyanendra Singh</p>
+                                    <p class="icon"><i class="fa fa-briefcase"></i>&nbsp;<span class="abc-cls">Technical Lead</span></p>
+                                    <p class="icon"><i class="fa fa-book"></i>&nbsp;<span class="abc-cls">B.tech</span></p>
+                                    <p class="icon"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;<span
+                                            class="abc-cls">15/02/2022</span></p>
+
+                                </td>
+                                <td>
+                                    <p class="app-id">123456</p>
+                                    <p class="icon"><span class="abc-cls">123456</span></p>
+                                </td>
+                                <td>
+                                    <p class="icon"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;<span
+                                            class="abc-cls">8126139074 </span></p>
+                                    <p class="abc">@&nbsp;<span class="abc-cls">gyanendra.s@troology.com</span></p>
+                                </td>
+
+                                <td>
+                                    <p class="icon">Lucknow</p>
+                                    <p class="abc-cls">UP</p>
+
+                                </td>
+                                <td>
+                                    <p class="abc-cls">123234 </p>
+                                </td>
+                                <td>
+
+                                    <p class="abc-cls">Testing</p>
+                                </td>
+                                <td>
+                                    <p class="btn btn-xs btn-success">Hello</p>
+                                </td>
+
+                                <td>
+
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle btn-cls" type="button" id="menu1"
+                                            data-toggle="dropdown"><span class="app-id"> <i class="fa fa-cog"
+                                                    aria-hidden="true"></i>&nbsp;</span>
+                                            <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                    href="">Edit</a></li>
+
+
+                                            <li class="disabled">
+                                                <a role="menuitem" tabindex="-1"> <i
+                                                        class="fa fa-repeat"> Resend EOI </i></a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="dataTables_paginate paging_simple pull-right" id="">
+            <ul class="pagination">
+                <li class="paginate_button previous disabled" id="vehicle-data-instock_previous"><a href="#"
+                        aria-controls="vehicle-data-instock" data-dt-idx="0" tabindex="0"><i
+                            class="fa fa-angle-left"></i></a></li>
+                <li class="paginate_button next" id="vehicle-data-instock_next"><a href="#"
+                        aria-controls="vehicle-data-instock" data-dt-idx="1" tabindex="0"><i
+                            class="fa fa-angle-right"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>

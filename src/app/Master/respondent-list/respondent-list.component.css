@@ -1,0 +1,16 @@
+#portal-drivers {
+    overflow-x: scroll !important;
+    max-width: 100% !important;
+    display: block !important;
+    white-space: nowrap !important;
+}
+
+table.dataTable {
+    background: no-repeat;
+    border: none;
+}
+.text-white {
+    color: #000000 !important;
+    font-weight: 500;
+    font-size: 17px;
+}

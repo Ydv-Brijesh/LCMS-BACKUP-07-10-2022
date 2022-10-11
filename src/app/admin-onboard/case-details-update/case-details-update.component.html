@@ -1,0 +1,177 @@
+<p>case-details-update works!</p>
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <!-- <h3 class="m-n font-thin text-white">Dashboard</h3> -->
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Update Case Details
+                    </h3>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head-title">
+                                <h4>Case Detail Information</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <form [formGroup]="saveForm" (ngSubmit)="clickFunction()">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Hearing Date / सुनवाई  </label>
+                                    <input class="form-control" type="date" formControlName="hearing_date">
+        
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Next Hearing Date / अगली सुनवाई</label>
+                                    <input class="form-control" type="date" formControlName="next_hearing_date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Court Order Date / आदेश दिनांक</label>
+                                    <input class="form-control" type="date" formControlName="court_order_date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Next Hearing Date / अगली सुनवाई</label>
+                                    <div class="form-control" style="background: #ebebeb;">
+                                        <a style="text-decoration: underline; color: blue;">Fetch Cause
+                                            List</a>
+                                    </div>
+                                </div>
+                                <!-- <a style="float: right; text-decoration: underline; color: blue;" data-toggle="modal" data-target="#docModal">Attach
+                                    Document</a> -->
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Hearing Details / सुनवाई विवरण</label>
+                                    <textarea class="form-control" formControlName="hearing_details" ></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Expected Action Type / अपेक्षित कार्यवाही प्रकार  </label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                       formControlName="expected_action_type">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataExpectedAction" value={{data._id}}>
+                                            {{data.action_name}}</option>
+                                    </select>
+        
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Compliance Action Detail / अनुपालन कार्यवाही प्रकार</label>
+                                    <textarea class="form-control"
+                                        formControlName="compliance_action"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Compliance Action Start Date / अनुपालन कार्यवाही प्रारंभ
+                                        तिथि</label>
+                                    <input class="form-control" type="date" formControlName="compliance_action_start_date"
+                                      >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Compliance Action End Date / अनुपालन कार्यवाही समाप्ति
+                                        तिथि</label>
+                                    <input class="form-control" type="date" formControlName="compliance_action_end_date"
+                                        >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Status / वाद अद्यतन स्थिति</label>
+                                    <select class="form-control select-language form-control-sm validation" formControlName="case_status_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataCS" value={{data._id}}>
+                                            {{data.case_status_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Landmark Judgement / ऐतिहासिक निर्णय</label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" 
+                                                name="land_mark_judgement" value="Yes" formControlName="land_mark_judgement">Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio"
+                                                name="land_mark_judgement" value="No" formControlName="land_mark_judgement">No
+                                        </label>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <div class="form-control" style="background: #ebebeb;">
+                                        <a style="text-decoration: underline; color: blue;">Club this
+                                            case</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                  
+                      
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="submit-detail">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

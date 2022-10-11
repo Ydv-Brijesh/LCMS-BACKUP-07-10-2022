@@ -1,0 +1,232 @@
+<div id="cover-spin"></div>
+<div class="app app-header-fixed ">
+    <!-- header -->
+    <header id="header" class="app-header navbar" role="menu">
+        <!-- navbar header -->
+        <div class="navbar-header bg-light lter">
+            <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
+                <i class="glyphicon glyphicon-cog"></i>
+            </button>
+            <button class="pull-right visible-xs" ui-toggle-class="off-screen" target=".app-aside" ui-scroll="app">
+                <i class="glyphicon glyphicon-align-justify"></i>
+            </button>
+            <!-- brand -->
+            <a href="#" class="navbar-brand text-lt">
+                <!-- <img src="./assets/img/logo.png" alt="." class="hide"> -->
+                <span class="visible-folded hidden-xs"><img src="./assets/img/logo.png" width="50"
+                        alt="UP SRLM"></span>
+                <span class="hidden-folded">
+                    <img src="./assets/img/logo.png" alt="UP SRLM">
+                    <!-- <a class="railwayLogo" href="javascript:void(0)">LCMS</a> -->
+                </span>
+            </a>
+            <!-- / brand -->
+        </div>
+        <!-- / navbar header -->
+        <!-- navbar collapse -->
+        <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
+            <!-- buttons -->
+            <div class="nav navbar-nav hidden-xs">
+                <!-- <a href="#" class="btn no-shadow navbar-btn g-px-5" ui-toggle-class="app-aside-folded" target=".app">
+                    <i class="fa fa-dedent fa-fw text"></i>
+                    <i class="fa fa-indent fa-fw text-active"></i>
+                </a> -->
+                <a class="btn no-shadow navbar-btn g-px-0 m-t-10">
+                    <i class="fa fa-clock-o"></i> <small class=""><span id="date_header_time"> {{date   | date: 'EE, MMMM d, y, '}}</span><span id="clock">{{date   | date: "HH:mm:ss"}}</span></small>
+                </a>
+            </div>
+            <!-- / buttons -->
+            <!-- search form -->
+            <!-- <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo"
+                data-target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" ng-model="selected"
+                            typeahead="state for state in states | filter:$viewValue | limitTo:8"
+                            class="form-control input-sm bg-light no-border rounded padder"
+                            placeholder="Search projects...">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-sm bg-light rounded"><i
+                                    class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </form> -->
+            <!-- / search form -->
+            <!-- nabar right -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li>
+                    <a class="btn no-shadow ">
+                        <i class="fa fa-clock-o"></i> <small class=""><span id="date_header_time"></span><span id="clock"></span></small>
+                    </a>
+                </li> -->
+                <!-- <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle get_last_10_notification"
+                        data-toggle="dropdown">
+                        <i class="fa fa-calendar fa-fw g-px-5"></i>
+                        <span class="visible-xs-inline">Events</span>
+                        <span class="badge badge-sm up bg-info pull-right-xs"><span
+                                class="noti_count_show">0</span></span>
+                    </a>
+                    <div class="dropdown-menu w-600">
+                        <div class="panel bg-white">
+                            <div class="panel-heading b-light bg-light">
+                                <a href="#">See all the Events</a>
+                            </div>
+                            <div class="list-group noti_content_show">
+
+                            </div>
+                        </div>
+                    </div>
+                </li> -->
+                <!-- <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle get_last_10_notification"
+                        data-toggle="dropdown">
+                        <i class="fa fa-envelope fa-fw g-px-5"></i>
+                        <span class="visible-xs-inline">Emails</span>
+                        <span class="badge badge-sm up bg-info pull-right-xs"><span
+                                class="noti_count_show">0</span></span>
+                    </a>
+                    <div class="dropdown-menu w-600">
+                        <div class="panel bg-white">
+                            <div class="panel-heading b-light bg-light">
+                                <a href="#">See all the Emails</a>
+                            </div>
+                            <div class="list-group noti_content_show">
+
+                            </div>
+                        </div>
+                    </div>
+                </li> -->
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle get_last_10_notification"
+                        data-toggle="dropdown">
+                        <i class="fa fa-bell fa-fw g-px-5"></i>
+                        <span class="visible-xs-inline">Notifications</span>
+                        <span class="badge badge-sm up bg-info pull-right-xs"><span
+                                class="noti_count_show">0</span></span>
+                    </a>
+                    <div class="dropdown-menu w-600">
+                        <div class="panel bg-white">
+                            <div class="panel-heading b-light bg-light">
+                                <a href="#">See all the notifications</a>
+                            </div>
+                            <div class="list-group noti_content_show">
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle clear" data-toggle="dropdown">
+                        <span class="thumb-sm avatar m-t-n-sm m-b-n-sm m-r-sm">
+                            <img src="./assets/img/member-n.png" alt="...">
+                            <i class="on md b-white bottom"></i>
+                        </span>
+                        <span class="hidden-sm hidden-md">Hi <span
+                                class="text-uppercase user-profile-name">{{this.username}}</span></span> <b class="caret"></b>
+                    </a>
+                    <!-- dropdown -->
+                    <ul class="dropdown-menu animated fadeInRight w">
+                        <!-- <li>
+                            <a href>
+                                <span class="badge bg-danger pull-right">30%</span>
+                                <span>Settings</span>
+                            </a>
+                        </li> -->
+                        <!-- <li>
+                            <a ui-sref="app.page.profile" class="user-update-profile">Profile</a>
+                        </li> -->
+                        <li>
+                            <a data-toggle="modal" data-target="#user-profile" aria-hidden="true" ui-sref="app.page.profile" class="user-change-password">Change Password</a>
+                        </li>
+                        <!-- <li>
+                            <a ui-sref="app.docs">
+                                <span class="label bg-info pull-right">new</span>
+                                Help
+                            </a>
+                        </li> -->
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">Logout</a>
+                        </li>
+                    </ul>
+                    <!-- / dropdown -->
+                </li>
+            </ul>
+            <!-- / navbar right -->
+        </div>
+        <!-- / navbar collapse -->
+    </header>
+    <!-- / header -->
+
+
+    <!------------------------------------------------- User Profile model ------------------------------->
+<div class="modal fade" id="user-profile" role="dialog">
+    <div class="modal-dialog r-2x">
+        <div class="modal-content r-2x b-b-3x b-b-theme">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal"><i
+                        class="fa fa-times text-black m-t-xs"></i></button>
+                <h4 class="modal-title text-white font-bold">Change Password</h4>
+            </div>
+            <div class="modal-body">
+             <form [formGroup]="appForm" (ngSubmit)="changeSubmit()">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label font-weight-600">Old Password</label>
+                            <input type="password" class="form-control input-sm user-profile-validation" formControlName="old_pass" placeholder="Enter the current password">
+                        </div>
+                        <div *ngIf="f.old_pass.errors &&  isValidFormSubmitted" class="text-danger         text-left       mb-1 errorcontrols">
+                            <div *ngIf="f.old_pass.errors.required"><small>Old Password is
+                               required.</small>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label font-weight-600">New Password</label>
+                            <input type="password" class="form-control input-sm user-profile-validation" formControlName="new_pass" placeholder="Enter the new password">
+                        </div>
+                        <div *ngIf="f.new_pass.errors &&  isValidFormSubmitted" class="text-danger text-left mb-1 errorcontrols">
+                            <div *ngIf="f.new_pass.errors.required"><small>New Password is
+                               required.</small>
+                            </div>
+                            <div *ngIf="f.new_pass.errors.pattern"><small>Minimum 8 character password.</small></div>
+                            <div *ngIf="f.new_pass.errors.pattern"><small>At least one upper case (e.g.[A-Z])</small></div>
+                            <div *ngIf="f.new_pass.errors.pattern"><small>At least one lower case (e.g.[a-z])</small></div>
+                            <div *ngIf="f.new_pass.errors.pattern"><small>At least one digit (e.g [0-9])</small></div>
+                            <div *ngIf="f.new_pass.errors.pattern"><small>At least one special character (e.g [#?!@$%^&*-]).</small></div>
+                       </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label font-weight-600">Confirm new Password </label>
+                            <input type="password" class="form-control input-sm user-profile-validation" formControlName="c_pass" placeholder="Enter the confirm new password">
+                        </div>
+                         <div *ngIf="f.c_pass.errors && f.c_pass.errors.required && isValidFormSubmitted"
+                         class="text-danger text-left mb-1 errorcontrols">
+                            <div *ngIf="f.c_pass.errors.required"><small>Confirm Password is required.</small>
+                            </div>
+                            </div>
+                            <div *ngIf="f.c_pass.errors && f.c_pass.errors.mustMatch" class="text-danger text-left mb-1 errorcontrols">
+                            <div *ngIf="f.c_pass.errors.mustMatch"><small>New Password and Confirm Password is not match.</small>
+                            </div>
+                         </div>
+                    </div>
+                 
+                
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-3d m-b-xs w-xs btn-sm btn-success user-profile-submit" value="submit">
+                            Save</button> &nbsp;
+                        <button type="button" class="btn btn-3d m-b-xs  btn-sm btn-dark"
+                            data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+             </form>
+            </div>
+        </div>
+    </div>
+ </div>
+ <!-------------------------------------------------End User Profile model ------------------------------->

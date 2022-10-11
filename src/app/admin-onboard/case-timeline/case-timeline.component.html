@@ -1,0 +1,337 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <!-- <h3 class="m-n font-thin text-white">Dashboard</h3> -->
+                    <h3 class="m-n font-thin text-white">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i> Case status
+                    </h3>
+                </div>
+                <div class="col-sm-6 col-xs-12"></div>
+            </div>
+        </div>
+        <div class="">
+            <div class="panel-body bg-antiquewhite">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                        <div class="top_search">
+                            <div class="search_button">
+                                <form>
+                                    <div class="input-group">
+                                        <!-- <input type="text" class="form-control" placeholder="Search for..."> -->
+
+                                        <!-- <select
+                                            class="form-control select-language form-control-sm validation"
+                                            formControlName="case_no" (click)="getCaseNo($event)">
+                                            
+                                            <option *ngFor="let data of getCaseNoData" value={{data._id}}>
+                                                    {{data.case_no}}
+                                            </option>
+                                        </select> 
+                                    
+                                    
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#basicModal"
+                                                class="btn btn-org" type="button"><i class="fa fa-search"
+                                                    aria-hidden="true"></i> SEARCH</button>
+                                        </span> -->
+
+                                        <mat-form-field class="example-full-width" appearance="fill">
+
+                                            <input type="text" placeholder="Search Case No." aria-label="Text"
+                                                formControlName="case_no" matInput>
+                                            <mat-autocomplete #auto="matAutocomplete">
+
+                                            </mat-autocomplete>
+
+                                        </mat-form-field>
+
+
+
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#basicModal" class="btn btn-org"
+                                                type="button"><i class="fa fa-search" aria-hidden="true"></i>
+                                                SEARCH</button>
+                                        </span>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- <div class="input-group">
+                                <span class="input-group-btn adv-btn">
+                                    <button (click)=toggleDisplay() class="btn btn-red" type="button"><i
+                                            class="fa fa-cog" aria-hidden="true"></i> ADVANCE SEARCH <i
+                                            class="fa fa-1x fa-angle-right"></i>
+                                    </button>
+                                </span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12" id="tabs-details">
+                            <h5 for="">Case Timeline</h5>
+                            <div style="border: 1px solid #bfbfbf">
+                                <div class="order">
+                                    <!-- <h5>Court Order Date <span><a>Hearing Date</a></span></h5> -->
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#OrderDate">Court Order Date</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#Hearing">Hearing Date</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="continer">
+                                    <div class="tab-content">
+                                        <div id="OrderDate" class="tab-pane fade in active">
+                                            <div class="timeline-block timeline-block-right">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <div class="timeline-date">
+                                                            <div class="input_grp form-group timeline-main">
+                                                                <label for="">Court Order Date/न्यायालय आदेश
+                                                                    दिनांक</label>
+                                                                <h4>Sep 30, 2022</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="marker active container"><span>1 </span></div>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="timeline-content">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Court/मा0 न्यायालय</label>
+                                                                        <h4>मा0 सर्वोच्च न्यायालय</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Section/अनुभाग</label>
+                                                                        <h4>सिंचाई अनुभाग-13</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Action Type/कार्यवाही</label>
+                                                                        <h4>TEST Expected Action</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Hearing Date/सुनवाई</label>
+                                                                        <h4>Sep 22, 2022</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Compliance Start Date/ अनुपालन
+                                                                            प्रारंभ
+                                                                            तिथि</label>
+                                                                        <h4>Sep 23, 2022</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Compliance End Date/अनुपालन
+                                                                            समाप्ति
+                                                                            तिथि</label>
+                                                                        <h4>Oct 9, 2022</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Case Status / वाद अद्यतन
+                                                                            स्थिति</label>
+                                                                        <h4>अवमाननावाद</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Landmark Judgement / ऐतिहासिक
+                                                                            निर्णय</label>
+                                                                        <h4>dvfggf</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Action Detail/कार्यवाही
+                                                                            अभ्युक्ति</label>
+                                                                        <h4>We’ll see that the ability to embed fonts
+                                                                            with @font-face is not by itself a solution
+                                                                            to all of our typographic challenges.</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <!-- <label for="">Case Document/मा0
+                                    न्यायालय</label> -->
+                                                                        <!-- <h4 *ngIf="this.data?.case_document">
+                                    <a  href="https://lcms-staging.evalue8.info/{{this.data?.case_document}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"> <i class="fa fa-eye"></i> View Document  
+                                    </a>
+                                </h4>
+                                <h4 *ngIf="!this.data?.case_document"></h4> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <!-- <label
+                                    style="font-size: 10px; text-decoration: underline;"><a>VIEW
+                                        TRANSLATION</a></label> -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="Hearing" class="tab-pane fade">
+                                            <div class="timeline-block timeline-block-right">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <div class="timeline-date">
+                                                            <div class="input_grp form-group timeline-main">
+                                                                <label for="">Hearing Date/सुनवाई</label>
+                                                                <h4>Sep 22, 2022</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="marker active container"><span>1</span></div>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <div class="timeline-content">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Court/मा0 न्यायालय</label>
+                                                                        <h4>मा0 सर्वोच्च न्यायालय</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Section/अनुभाग</label>
+                                                                        <h4>सिंचाई अनुभाग-13</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Action Type/कार्यवाही</label>
+                                                                        <h4>TEST Expected Action</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Court Order Date/न्यायालय आदेश
+                                                                            दिनांक</label>
+                                                                        <h4>Sep 30, 2022</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Compliance Start Date/ अनुपालन
+                                                                            प्रारंभ
+                                                                            तिथि</label>
+                                                                        <h4>Sep 23, 2022</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Compliance End Date/अनुपालन
+                                                                            समाप्ति
+                                                                            तिथि</label>
+                                                                        <h4>Oct 9, 2022</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Case Status / वाद अद्यतन
+                                                                            स्थिति</label>
+                                                                        <h4>अवमाननावाद</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Landmark Judgement / ऐतिहासिक
+                                                                            निर्णय</label>
+                                                                        <h4>dfsrgbgrb</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                        <label for="">Action Detail/कार्यवाही
+                                                                            अभ्युक्ति</label>
+                                                                        <h4>We’ll see that the ability to embed fonts
+                                                                            with @font-face is not by itself a solution
+                                                                            to all of our typographic challenges.</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input_grp form-group timeline-main">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="timeline-block timeline-block-right active">
+        <div class="marker active"><span>2</span></div>
+        <div class="timeline-content">
+            <h3>Third Year</h3>
+            <span>Some work experience</span>
+        </div>
+    </div> -->
+                                </div>
+                                <!-- <lib-ngx-vertical-timeline [items]="items"></lib-ngx-vertical-timeline> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

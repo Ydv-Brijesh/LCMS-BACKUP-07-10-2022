@@ -1,0 +1,153 @@
+.button_group,
+.button_group_fotter {
+    text-align: right;
+    padding: 3px 0;
+}
+.button_group_fotter{
+    padding: 2rem 0 15px 0 ;
+}
+
+.button_group a {
+    padding: 5px 7px;
+    border-radius: 11px;
+    border: 1px solid;
+    color: #ffffff;
+    margin: 0px 0px 0px 10px;
+}
+
+.button_group_fotter a {
+    padding: 10px 17px;
+    border-radius: 11px;
+    border: 1px solid;
+    color: #000000;
+    margin: 0px 0px 0px 10px;
+}
+
+.bb {
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* .d-flex{
+    display: flex;
+    align-items: center;
+}
+.d-flex img{
+    margin-left: 9px;
+    cursor: pointer;
+} */
+/* .input_grp{
+    display: flex;
+    align-items: center;
+} */
+/* .input_grp label{
+    margin-right: 2rem;
+    width: 19%;
+} */
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #ffd8c6;
+}
+
+th {
+    background-color:#f06321;
+    color: #ffffff;
+}
+
+
+/* ..........model...................... */
+
+.modal-header{
+background-color:#f06321;
+color: #ffffff;
+}
+.modal .modal-dialog .modal-content .modal-header .modal-title:after{
+    display: none;
+}
+.modal-footer{
+    border: none;
+}
+
+
+
+
+
+
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: transparent !important;
+    width: 97%;
+}
+::ng-deep  .mat-form-field {
+    line-height: 0;
+}
+.input-group-btn:last-child>.btn {
+    margin-left: -11px;
+    height: 35px;
+    margin-top: 9px;
+}
+.widTH100 {
+    width: 100%;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+    transform: translateY(-6%) !important;
+}
+::ng-deep .mat-select-value {
+    padding-top: 1rem;
+    overflow: visible;
+}
+
+
+::ng-deep  .mat-form-field-underline {
+    width: 0 !important;
+}
+
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0.25em 0 0.75em 1rem;
+    border: 1px solid #d3d3d3;
+    margin-left: -10px;
+    height: 36px;
+}
+::ng-deep .mat-select-value {
+    padding-top: 1.5rem;
+    overflow: visible;
+}
+
+.input-group-btn:last-child > .btn{
+    margin-left: -23px;
+    height: 36px;
+    /* margin-top: -6px; */
+    position: relative;
+    left: -18px;
+    top: -8px;
+}
+
+::ng-deep .mat-select-value {
+    padding-top: 1.5rem;
+    overflow: visible !important;
+}
+
+
+::ng-deep .mat-select-arrow {
+    margin: 14px 25px !important;
+}
+
+::ng-deep .mat-form-field-infix {
+    width: 49.2rem !important;
+    margin-top: 1px !important;
+}

@@ -1,0 +1,21 @@
+
+.status_Pending {
+    background: #4a86dd45;
+    border: 1px solid #4a86dd;
+    border-radius: 4px;
+    padding: 4px 5px;
+    font-size: 11px;
+    color: #225baf;
+    font-weight: 600;
+}
+.status_Complete {
+    background: #28a74540;
+    border: 1px solid #28a745;
+    color: #23853a;
+}
+
+.text-white {
+    color: #000000 !important;
+    font-weight: 500;
+    font-size: 17px;
+}

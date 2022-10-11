@@ -1,0 +1,1127 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <!-- <h3 class="m-n font-thin text-white">Dashboard</h3> -->
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Create Case
+                    </h3>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="button_group">
+                        <a style="border-color:#ddd;" href="javascript:void(0)">Cancel</a>
+                        <a style="border-color:#008000;" href="javascript:void(0)">Save and New</a>
+                        <a style="border-color:#ff0000;" href="javascript:void(0)">Save</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                            <div class="head-title">
+                                <h4>Case Information</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Department / विभाग</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                        <option value=''>Civil</option>
+                                        <option value='Hindi'>Mechanical</option>
+                                        <option value='English'>CADWM</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Is Contempt / अवमानना</label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" checked>No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Is SLP / अनुमति याचिका</label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="ww">Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="ww" checked>No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <a href="javascript:void(0)" style="color:blue;  text-decoration: underline;">Add Contempt Case
+                                    Information</a>
+                            </div>
+                        </div>
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Court / मा0 न्यायालय</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                        <option value=''>मा० उच्चतम न्यायालय, नई दिल्ली </option>
+                                        <option value=''>मा० उच्च न्यायालय, इलाहबाद</option>
+                                        <option value=''>मा० उच्च न्यायालय, इलाहबाद खंडपीठ, लखनऊ</option>
+                                        <option value=''>सिविल कोर्ट</option>
+                                        <option value=''>सिविल जज</option>
+                                        <option value=''>मा० राज्य लोकसेवा न्यायाधिक्र्ण</option>
+                                        <option value=''>श्रम न्यायालय</option>
+                                        <option value=''>आर्वीटेशन</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Gov Section / शासन अनुभाग</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                        <option value=''>सिंचाई अनुभाग−1</option>
+                                        <option value=''>सिंचाई अनुभाग−2</option>
+                                        <option value=''>सिंचाई अनुभाग−3</option>
+                                        <option value=''>सिंचाई अनुभाग−4</option>
+                                        <option value=''>सिंचाई अनुभाग−5</option>
+                                        <option value=''>सिंचाई अनुभाग−6</option>
+                                        <option value=''>सिंचाई अनुभाग−7</option>
+                                        <option value=''>सिंचाई अनुभाग−8</option>
+                                        <option value=''>सिंचाई अनुभाग−9</option>
+                                        <option value=''>सिंचाई अनुभाग−10</option>
+                                        <option value=''>सिंचाई अनुभाग−11</option>
+                                        <option value=''>सिंचाई अनुभाग−12</option>
+                                        <option value=''>सिंचाई अनुभाग−13</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">District / जिला</label>
+                                    <select class="form-control select-language form-control-sm validation" name="select-language">
+                                        <option value=''>AGRA</option>
+                                        <option value=''>ALIGARH</option>
+                                        <option value=''>PRAYAGRAJ</option>
+                                        <option value=''>AMBEDKAR NAGAR</option>
+                                        <option value=''>AMETHI (CHATRAPATI SAHUJI MAHRAJ NAGAR)</option>
+                                        <option value=''>AMROHA (J.P. NAGAR)</option>
+                                        <option value=''>ANANTAPUR</option>
+                                        <option value=''>AURAIYA</option>
+                                        <option value=''>AZAMGARH</option>
+                                        <option value=''>BAGHPAT</option>
+                                        <option value=''>BAHRAICH</option>
+                                        <option value=''>BALLIA</option>
+                                        <option value=''>BALRAMPUR</option>
+                                        <option value=''>BANDA</option>
+                                        <option value=''>BARABANKI</option>
+                                        <option value=''>BAREILLY</option>
+                                        <option value=''>BASTI</option>
+                                        <option value=''>BHADOHI</option>
+                                        <option value=''>BIJNOR</option>
+                                        <option value=''>BUDAUN</option>
+                                        <option value=''>BULANDSHAHR</option>
+                                        <option value=''>CHANDAULI</option>
+                                        <option value=''>CHITRAKOOT</option>
+                                        <option value=''>CHITTOOR</option>
+                                        <option value=''>DEORIA</option>
+                                        <option value=''>ETAH</option>
+                                        <option value=''>ETAWAH</option>
+                                        <option value=''>FAIZABAD</option>
+                                        <option value=''>FARRUKHABAD</option>
+                                        <option value=''>FATEHPUR</option>
+                                        <option value=''>FIROZABAD</option>
+                                        <option value=''>GAUTAM BUDDHA NAGAR</option>
+                                        <option value=''>GHAZIABAD</option>
+                                        <option value=''>GHAZIPUR</option>
+                                        <option value=''>GONDA</option>
+                                        <option value=''>GORAKHPUR</option>
+                                        <option value=''>HAMIRPUR</option>
+                                        <option value=''>HAPUR (PANCHSHEEL NAGAR)</option>
+                                        <option value=''>HARDOI</option>
+                                        <option value=''>HATHRAS</option>
+                                        <option value=''>JALAUN</option>
+                                        <option value=''>JAUNPUR</option>
+                                        <option value=''>JHANSI</option>
+                                        <option value=''>KANNAUJ</option>
+                                        <option value=''>KANPUR DEHAT</option>
+                                        <option value=''>KANPUR NAGAR</option>
+                                        <option value=''>KANSHIRAM NAGAR (KASGANJ)</option>
+                                        <option value=''>KAUSHAMBI</option>
+                                        <option value=''>KUSHINAGAR (PADRAUNA)</option>
+                                        <option value=''>LAKHIMPUR - KHERI</option>
+                                        <option value=''>LALITPUR</option>
+                                        <option value=''>Lucknow</option>
+                                        <option value=''>MAHARAJGANJ</option>
+                                        <option value=''>MAHOBA</option>
+                                        <option value=''>MAINPURI</option>
+                                        <option value=''>MATHURA</option>
+                                        <option value=''>MAU</option>
+                                        <option value=''>MEERUT</option>
+                                        <option value=''>MIRZAPUR</option>
+                                        <option value=''>MORADABAD</option>
+                                        <option value=''>MUZAFFARNAGAR</option>
+                                        <option value=''>PILIBHIT</option>
+                                        <option value=''>PRATAPGARH</option>
+                                        <option value=''>RAEBARELI</option>
+                                        <option value=''>RAMPUR</option>
+                                        <option value=''>SAHARANPUR</option>
+                                        <option value=''>SAMBHAL (BHIM NAGAR)</option>
+                                        <option value=''>SANT KABIR NAGAR</option>
+                                        <option value=''>SHAHJAHANPUR</option>
+                                        <option value=''>SHAMALI (PRABUDDH NAGAR)</option>
+                                        <option value=''>SHRAVASTI</option>
+                                        <option value=''>SIDDHARTH NAGAR</option>
+                                        <option value=''>SITAPUR</option>
+                                        <option value=''>SONBHADRA</option>
+                                        <option value=''>SULTANPUR</option>
+                                        <option value=''>UNNAO</option>
+                                        <option value=''>VARANASI</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">H.O. Section / अधिष्ठान अनुभाग</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                    <option value=''>सिंचाई अनुभाग−1</option>
+                                    <option value=''>सिंचाई अनुभाग−2</option>
+                                    <option value=''>सिंचाई अनुभाग−3</option>
+                                    <option value=''>सिंचाई अनुभाग−4</option>
+                                    <option value=''>सिंचाई अनुभाग−5</option>
+                                    <option value=''>सिंचाई अनुभाग−6</option>
+                                    <option value=''>सिंचाई अनुभाग−7</option>
+                                    <option value=''>सिंचाई अनुभाग−8</option>
+                                    <option value=''>सिंचाई अनुभाग−9</option>
+                                    <option value=''>सिंचाई अनुभाग−10</option>
+                                    <option value=''>सिंचाई अनुभाग−11</option>
+                                    <option value=''>सिंचाई अनुभाग−12</option>
+                                    <option value=''>सिंचाई अनुभाग−13</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Organization / संगठन</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                        <option value=''>Civil</option>
+                                        <option value='Hindi'>Mechanical</option>
+                                        <option value='English'>CADWM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Unit / इकाई</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">CE</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                        <option value=''>Mr. Gyanendra Singh</option>
+                                        <option value=''>Mr. Brijesh Yadav</option>
+                                        <option value=''>Mr. Ashish Maurya</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">SE</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                        <option value=''>Mr. Ajitesh Singh</option>
+                                        <option value=''>Mr. Rishabh Yadav</option>
+                                        <option value=''>Mr. Amit Maurya</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">EE</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                        <option value=''>Mr. Manish Tiwari</option>
+                                        <option value=''>Mr. Puspendra Singh</option>
+                                        <option value=''>Mr. Shri Nivash</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case No. / वाद संख्या</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Year / वाद वर्ष</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Petitioner / वादीगण</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Respondent / प्रतिवादीगण</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Notice No. / सूचना संख्या</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Filing Date / दाखिल तिथि </label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Type / वाद प्रकार</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Subject / वाद विषय </label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Classification / वाद वर्गीकरण</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Status / वाद अद्यतन स्थिति</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Prayer / वाद प्रार्थना</label>
+                                    <textarea class="form-control" type="text"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Description / प्रकरण संक्षिप्त विवरण</label>
+                                    <textarea class="form-control" type="text"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Ref. Case No. / संदर्भ वाद संख्या</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Affidavit Field / प्रतिशपथ पत्र दाख़िला </label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        name="select-language">
+                                        <option value=''>Civil</option>
+                                        <option value='Hindi'>Mechanical</option>
+                                        <option value='English'>CADWM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Affidavit Filing Deu Date / प्रतिशपथ पत्र दाख़िल कराने की निर्धारित
+                                        तिथि</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Affidavit Filing Date / प्रतिशपथ पत्र दाख़िल कराने की तिथि</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Reason For Not Filing Affidavit / प्रतिशपथ पत्र दाख़िल न कराने का
+                                        कारण</label>
+                                    <textarea class="form-control" type="text"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Remark / अभ्युक्ति</label>
+                                    <textarea class="form-control" type="text"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">File No. / फ़ाइल संख्या</label>
+                                    <input class="form-control" type="text">
+                                    <!-- <img onclick="window.print()" src="../../../assets/img/google.png" alt=""> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp" style="margin: 18px 0 0 0;">
+                                    <img onclick="window.print()" src="../../../assets/img/qr2.png" alt="" style="width:41px ;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Attach Document / दस्तावेज़ संलग्न करें</label>
+                                    <input class="form-control" type="file" id="myfile" name="myfile">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Petitioner / वादीगण</label>
+                                    <!-- <input class="form-control" type="text"> -->
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#largeModal"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Petitioner / वादीगण</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <tr>
+                                                <th style="width:6%;">S. No.</th>
+                                                <th>Petitioner Name</th>
+                                                <th>Designation</th>
+                                                <th>Mobile</th>
+                                                <th>District</th>
+                                                <th style="width:10%;text-align:center;">Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">1</td>
+                                                <td>श्री शीतला प्रसाद दीक्षित</td>
+                                                <td>अभियन्ता</td>
+                                                <td>9865768746</td>
+                                                <td>लखनऊ</td>
+                                                <td style="text-align:center;">
+                                                    <div class="btn-group dropdown"><button
+                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                            data-toggle="dropdown" aria-expanded="false"><i
+                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                            <span class=""><i
+                                                                    class="fa fa-caret-down"></i></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    View </a>
+                                                            </li>
+                                                            <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">2</td>
+                                                <td>श्री जवाहर लाल कुशवाहा</td>
+                                                <td>अभियन्ता</td>
+                                                <td>9865768746</td>
+                                                <td>प्रयागराज</td>
+                                                <td style="text-align:center;">
+                                                    <div class="btn-group dropdown"><button
+                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                            data-toggle="dropdown" aria-expanded="false"><i
+                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                            <span class=""><i
+                                                                    class="fa fa-caret-down"></i></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    View </a>
+                                                            </li>
+                                                            <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Respondent / प्रतिवादीगण</label>
+                                    <!-- <input class="form-control" type="text"> -->
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#largeModal1"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Respondent / प्रतिवादीगण</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <tr>
+                                                <th style="width:6%;">S. No.</th>
+                                                <th>Respondent Name</th>
+                                                <th>Designation</th>
+                                                <th>Mobile</th>
+                                                <th>District</th>
+                                                <th style="width:10%;text-align:center;">Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">1</td>
+                                                <td>राज्य सरकार व अन्य</td>
+                                                <td>--</td>
+                                                <td>9865768746</td>
+                                                <td>लखनऊ</td>
+                                                <td style="text-align:center;">
+                                                    <div class="btn-group dropdown"><button
+                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                            data-toggle="dropdown" aria-expanded="false"><i
+                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                            <span class=""><i
+                                                                    class="fa fa-caret-down"></i></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    View </a>
+                                                            </li>
+                                                            <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">2</td>
+                                                <td>1-प्रमुख सचिव सिंचाई शासन 2- प्रमुख अभियन्ता सिंचाई विभाग, उ0 प्र0लखनऊ 3-अधिशासी अभियन्ता शारदा सहायक, खण्ड-39,
+                                                प्रयागराज</td>
+                                                <td>--</td>
+                                                <td>9865768746</td>
+                                                <td>प्रयागराज</td>
+                                                <td style="text-align:center;">
+                                                    <div class="btn-group dropdown"><button
+                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                            data-toggle="dropdown" aria-expanded="false"><i
+                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                            <span class=""><i
+                                                                    class="fa fa-caret-down"></i></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    View </a>
+                                                            </li>
+                                                            <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Representing Officer / पैरोकार</label>
+                                    <!-- <input class="form-control" type="text"> -->
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#largeModal2"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Representing Officer / पैरोकार</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <tr>
+                                                <th style="width:6%;">S. No.</th>
+                                                <th>Representing Officer Name</th>
+                                                <th>Designation</th>
+                                                <th>Mobile</th>
+                                                <th>District</th>
+                                                <th style="width:10%;text-align:center;">Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">1</td>
+                                                <td>श्री शैलेन्द्र कुमार सिंह</td>
+                                                <td>अधिशासी अभियंता, सिंचाई निर्माण खण्ड−प्रथम, लखनऊ</td>
+                                                <td>9865768746</td>
+                                                <td>लखनऊ</td>
+                                                <td style="text-align:center;">
+                                                    <div class="btn-group dropdown"><button
+                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                            data-toggle="dropdown" aria-expanded="false"><i
+                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                            <span class=""><i
+                                                                    class="fa fa-caret-down"></i></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    View </a>
+                                                            </li>
+                                                            <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">2</td>
+                                                <td>श्री जितेन्द्र कुमार सिंह</td>
+                                                <td>अधिशासी अभियन्ता शारदा सहायक, खण्ड-39, प्रयागराज</td>
+                                                <td>9865768746</td>
+                                                <td>प्रयागराज</td>
+                                                <td style="text-align:center;">
+                                                    <div class="btn-group dropdown"><button
+                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                            data-toggle="dropdown" aria-expanded="false"><i
+                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                            <span class=""><i
+                                                                    class="fa fa-caret-down"></i></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    View </a>
+                                                            </li>
+                                                            <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Counsel / अभिवक्ता</label>
+                                    <!-- <input class="form-control" type="text"> -->
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#basicModal"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Counsel / अभिवक्ता</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <tr>
+                                                <th style="width:6%;">S. No.</th>
+                                                <th>Counsel Name</th>
+                                                <th>Mobile</th>
+                                                <th>Email</th>
+                                                <th style="width:10%;text-align:center;">Action</th>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">1</td>
+                                                <td>श्री जगन्नाथ यादव</td>
+                                                <td>9878657623</td>
+                                                <td>jyadav@gmail.com</td>
+                                                <td style="text-align:center;">
+                                                    <div class="btn-group dropdown"><button
+                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                            data-toggle="dropdown" aria-expanded="false"><i
+                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                            <span class=""><i
+                                                                    class="fa fa-caret-down"></i></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    View </a>
+                                                            </li>
+                                                            <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">2</td>
+                                                <td>श्री रवींद्र कुमार पांडे</td>
+                                                <td>9878657623</td>
+                                                <td>rvkpanday@gmail.com</td>
+                                                <td style="text-align:center;">
+                                                    <div class="btn-group dropdown"><button
+                                                            class="btn btn-default w-xxs btn-sm r-2x"
+                                                            data-toggle="dropdown" aria-expanded="false"><i
+                                                                class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                            <span class=""><i
+                                                                    class="fa fa-caret-down"></i></span></button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    View </a>
+                                                            </li>
+                                                            <li><a href=""><i class="fa fa-edit"></i> Edit </a></li>
+                                                            <li><a href="#"><i class="fa fa-trash-o"></i> Delete
+                                                                </a></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <div class="button_group_fotter">
+                                        <a style="border-color:#ddd;" href="javascript:void(0)">Cancel</a>
+                                        <a style="border-color:#008000;" href="javascript:void(0)">Reset</a>
+                                        <a style="border-color:#ff0000;" href="javascript:void(0)">Save</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- .......................................model.................................. -->
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Petitioner</h3>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Designation / पद</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Phone / फ़ोन</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">State / राज्य</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">District / जिला</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Village / ग्राम</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Pincode / पिन कोड</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Address / पता</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="largeModal1" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Respondent</h3>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Designation / पद</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Phone / फ़ोन</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Khand / खंड</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">District / जिला</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Village / ग्राम</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Pincode / पिन कोड</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Address / पता</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="largeModal2" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Representing Officer</h3>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Designation / पद</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Phone / फ़ोन</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Khand / खंड</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">District / जिला</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Village / ग्राम</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Pincode / पिन कोड</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Address / पता</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Counsel</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input_grp form-group">
+                                <label for="">Mobile / मोबाइल</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,613 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<!-- <router-outlet></router-outlet> -->
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class=" font-thin text-white">DASHBOARD</h3>
+                    <!-- <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Create Case
+                    </h3> -->
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="panel b-a">
+                <div class="">
+                    <div class="">
+                        <div class="panel-body bg-antiquewhite">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                                    <div class="top_search">
+                                        <div class="search_button">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Search for...">
+                                                <span class="input-group-btn">
+                                                    <button data-toggle="modal" data-target="#basicModal"
+                                                        class="btn btn-org" type="button"><i class="fa fa-search"
+                                                            aria-hidden="true"></i> SEARCH</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-btn adv-btn">
+                                                <button (click)=toggleDisplay() class="btn btn-red" type="button"><i
+                                                        class="fa fa-cog" aria-hidden="true"></i> ADVANCE SEARCH <i
+                                                        class="fa fa-1x fa-angle-right"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <div [hidden]="isShow" id="hihe_cont">
+                        <div class="b-a">
+                            <div class="panel-body bg-antiquewhite">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="advance-search">
+                                            <div class="advance-search-box">
+                                                <label for="">Case/Writ Number</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Court</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Case Type</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Case Subject</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Case Year</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="advance-search">
+                                            <div class="advance-search-box">
+                                                <label for="">Case Status</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Contempt</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Notice No</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">District</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">SLP</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="dd"></div>
+                                        <div class="advance-search">
+                                            <div class="advance-search-box">
+                                                <label for="">Petitioner</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Respondent</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Petitioner Counsel</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Respondent Counsel</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Representing Officer</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="dd"></div>
+                                        <div class="advance-search">
+                                            <div class="advance-search-box">
+                                                <label for="">Hearing Date</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Court Order Date</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Judgement Date</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Compliance Start Date</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="advance-search-box">
+                                                <label for="">Compliance End Date</label>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="button-list">
+                                            <a class="btn btn-default" role="button">RESET</a>
+                                            <a class="btn btn-oreng" role="button"><i class="fa fa-search"
+                                                    aria-hidden="true"></i> SEARCH</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="">
+                    <div class="panel-body">
+                        <div class="b-a b-r">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                                        <div class="head-title">
+                                            <h4>Select Court</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select class="form-control select-language form-control-sm validation"
+                                                name="select-language">
+                                                <option value=''>All Courts</option>
+                                                <option value='Hindi'>--</option>
+                                                <option value='English'>--</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select class="form-control select-language form-control-sm validation"
+                                                name="select-language">
+                                                <option value=''>All Department</option>
+                                                <option value='Hindi'>--</option>
+                                                <option value='English'>--</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="box form-group">
+                                            <h3>8000</h3>
+                                            <p>Total Cases</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="box form-group">
+                                            <h3>3000</h3>
+                                            <p>Pending Cases</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="box form-group">
+                                            <h3>11,327</h3>
+                                            <p>Disposed Cases</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="box form-group">
+                                            <h3>540</h3>
+                                            <p>Dismissed Cases</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="box form-group">
+                                            <h3>1000</h3>
+                                            <p>Disposed With Directions</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="box form-group">
+                                            <h3>3000</h3>
+                                            <p>Contempt Cases</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="box form-group">
+                                            <h3>1000</h3>
+                                            <p>Cases With Affidavit</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="box form-group">
+                                            <h3>200</h3>
+                                            <p>Cases Without Affidavit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="thum_box">
+                                    <div class="thum">
+                                        <img src="../../../assets/img/addcase.png" alt="">
+                                    </div>
+                                    <h4>Add Case</h4>
+                                    <p>Add case as filed by the Petitioner and view the complete document hearing and
+                                        other
+                                        case-related information</p>
+                                    <button class="thum-btn btn_light_brown">ADD CASE</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thum_box">
+                                    <div class="thum">
+                                        <img src="../../../assets/img/judgement.png" alt="">
+                                    </div>
+                                    <h4>Case Hearings & Judgement</h4>
+                                    <p>Quickly view the entire case history and judgement at the a single view</p>
+                                    <button class="thum-btn btn_brown">CASE HEARINGS & JUDGEMENT</button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thum_box">
+                                    <div class="thum">
+                                        <img src="../../../assets/img/counsel.png" alt="">
+                                    </div>
+                                    <h4>Invite Respondent Counsel</h4>
+                                    <p>Invite your Counsel so that the case information & judgement can be seen and
+                                        remarks
+                                        can be added</p>
+                                    <button class="thum-btn btn-primary">INVITE RESPONDENT COUNSEL</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="panel-body" style="box-shadow:rgb(0 0 0 / 24%) 0px 3px 8px;">
+                                    <div class="tab-head">
+                                        <img src="../../../assets/img/clipboard-list.png" alt="">
+                                        <h4>My Tasks</h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <table class="over_shadow ">
+                                        <tr>
+                                            <th style="width:10%;">S. No.</th>
+                                            <th>Task Type</th>
+                                            <th>Subject</th>
+                                            <th>Due Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="sn_sn">1</td>
+                                            <td>Maria Anders</td>
+                                            <td>Germany</td>
+                                            <td>Germany</td>
+                                            <td>Germany</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sn_sn">2</td>
+                                            <td>Francisco Chang</td>
+                                            <td>Mexico</td>
+                                            <td>Germany</td>
+                                            <td>Germany</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="panel-body" style="box-shadow:rgb(0 0 0 / 24%) 0px 3px 8px;">
+                                    <div class="tab-head">
+                                        <img src="../../../assets/img/calendar-alt.png" alt="">
+                                        <h4>My Scheduled Hearings</h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <table class="over_shadow ">
+                                        <tr>
+                                            <th style="width:14%;">S. No.</th>
+                                            <th>Court</th>
+                                            <th>Case No.</th>
+                                            <th>Hearing Date</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="sn_sn">1</td>
+                                            <td>Maria Anders</td>
+                                            <td>Germany</td>
+                                            <td>Germany</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sn_sn">2</td>
+                                            <td>Francisco Chang</td>
+                                            <td>Mexico</td>
+                                            <td>Germany</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="panel-body b-a" style="box-shadow:rgb(0 0 0 / 24%) 0px 3px 8px;">
+                                    <div class="tab-head" style="justify-content: space-between;">
+                                        <h4>Case Calendar</h4>
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button"
+                                                data-toggle="dropdown">By Week
+                                                <span class="caret" style="margin-left:8px;"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="javascript:void(0)">By Week</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="box-shadow:rgb(0 0 0 / 24%) 0px 3px 8px;">
+                                    <iframe
+                                        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FKolkata&showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+                                        style="border-width:0" width="100%" height="500" frameborder="0" scrolling="no">
+                                    </iframe>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel-body b-a" style="box-shadow:rgb(0 0 0 / 24%) 0px 3px 8px;">
+                                    <div class="tab-head" style="justify-content: space-between;">
+                                        <h4>Today's Event</h4>
+                                        <div class="eventarrow">
+                                            <a href="javascript:void(0)"><i class="fa fa-angle-left"
+                                                    aria-hidden="true"></i></a>
+                                            <a class="B_R" href="javascript:void(0)"><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="box-shadow:rgb(0 0 0 / 24%) 0px 3px 8px;">
+                                    <iframe
+                                        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FKolkata&showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043&color=%2333B679"
+                                        style="border-width:0" width="100%" height="500" frameborder="0"
+                                        scrolling="no"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style=" border: 1px solid #dee5e7; border-radius: 10px;">
+                                    <div class="panel-body b-a bg_base r-t">
+                                        <div class="tab-head">
+                                            <h4>Cases (District wise)</h4>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div>
+                                            <div style="display: block">
+                                                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                                                    [options]="barChartOptions" [legend]="barChartLegend"
+                                                    [chartType]="barChartType"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div style=" border: 1px solid #dee5e7; border-radius: 10px;">
+                                    <div class="panel-body  bg_base r-t">
+                                        <div class="tab-head">
+                                            <h4>Case Type</h4>
+                                        </div>
+                                    </div>
+                                    <div class="b r-b">
+                                        <div style="display: block; padding: 3rem 0;">
+                                            <canvas baseChart *ngIf="typeChartData" [data]="typeChartData"
+                                                [labels]="typeChartLabels" [chartType]="typeChartType"
+                                                [options]="typeChartOptions" [plugins]="typeChartPlugins"
+                                                [legend]="typeChartLegend">
+                                            </canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div style=" border: 1px solid #dee5e7; border-radius: 10px;">
+                                    <div class="panel-body b-a bg_base r-t">
+                                        <div class="tab-head">
+                                            <h4>Court / Bench Wise</h4>
+                                        </div>
+                                    </div>
+                                    <div class="b r-b">
+                                        <div style="display: block; padding: 3rem 0;">
+                                            <canvas baseChart *ngIf="ChartData" [data]="ChartData"
+                                                [labels]="ChartLabels" [chartType]="ChartType" [options]="ChartOptions"
+                                                [plugins]="ChartPlugins" [legend]="ChartLegend">
+                                            </canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="b-a">
+                                    <div class="b-a">
+                                        <ul class="nav nav-tabs pl" role="tablist">
+                                            <li role="presentation" class="active"><a href="#Cases" aria-controls="home"
+                                                    role="tab" data-toggle="tab">Latest Cases</a>
+                                            </li>
+                                            <li role="presentation"><a href="#Hearings" aria-controls="profile"
+                                                    role="tab" data-toggle="tab">Latest Hearings</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="Cases">
+                                            <table>
+                                                <tr>
+                                                    <th style="width:6%;">S. No.</th>
+                                                    <th>Case No.</th>
+                                                    <th>Petitioner</th>
+                                                    <th>Respondent</th>
+                                                    <th>Court / Bench</th>
+                                                    <th>Section</th>
+                                                    <th>Subject</th>
+                                                    <th>Judgement</th>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sn_sn">1</td>
+                                                    <td>Maria Anders</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sn_sn">2</td>
+                                                    <td>Francisco Chang</td>
+                                                    <td>Mexico</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="Hearings">
+                                            <table>
+                                                <tr>
+                                                    <th style="width:6%;">S. No.</th>
+                                                    <th>Case No.</th>
+                                                    <th>Petitioner</th>
+                                                    <th>Respondent</th>
+                                                    <th>Court / Bench</th>
+                                                    <th>Section</th>
+                                                    <th>Subject</th>
+                                                    <th>Judgement</th>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sn_sn">1</td>
+                                                    <td>Maria Anders</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sn_sn">2</td>
+                                                    <td>Francisco Chang</td>
+                                                    <td>Mexico</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                    <td>Germany</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

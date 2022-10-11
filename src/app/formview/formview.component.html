@@ -1,0 +1,1006 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+
+<div id="content" class="app-content" role="main">
+  <div class="bg-light lter b-b wrapper-md">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <h1 class="m-n font-thin h3 text-black">Create Vehicle</h1>
+        <small class="text-muted">Please Fill all the necessary details</small>
+      </div>
+      <div class="col-sm-6 text-right hidden-xs"> <a class="btn m-b-xs w-xs btn-sm btn-success" href="">Vehicle</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-content-body ">
+    <form>
+      <div class="wrapper-md" ng-controller="FormDemoCtrl">
+        <div class="alert alert-info info-circle-alert">
+          <i class="fa fa-info-circle"></i>
+          This application form is a letter of intent and it is recommended that you should fill up the complete
+          information correctly in order to facilitate the assessment team to undertake proper assessment of your
+          prestigious unit.
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <div class="panel-heading"><b>Organization</b>
+                <p class="labelInfo">Information about the organization</p>
+              </div>
+              <div class="panel-body">
+
+                <div class="col-md-6 form-group">
+                  <label>Organization Name </label>
+                  <p class="labelInfo">Enter the full name of the Organization</p>
+                  <input type="text" class="form-control " placeholder="Enter" formControlName="organizationName">
+
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label>Highest Ranking Official </label>
+                  <p class="labelInfo">Enter the full name of the highest ranking official of the Organization</p>
+                  <input type="text" class="form-control " placeholder="Enter" formControlName="hightestRanking">
+
+
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label>Designation </label>
+                  <p class="labelInfo">Enter the designation of the highest ranking official of the Organization</p>
+                  <input type="text" class="form-control " placeholder="Enter" formControlName="designation">
+                  <!-- <select class="form-control" formControlName="designation">
+                    <option value="">Select Designation</option>
+                    <option value="software Testing">software Testing</option>
+                  </select> -->
+
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label>Email </label>
+                  <p class="labelInfo">Enter the email address of the highest ranking official of the Organization</p>
+                  <input type="text" class="form-control" placeholder="Enter " formControlName="organizationEmail">
+                  <div class="text-danger text-left mb-1">
+                    <div>Email is not valid</div>
+
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-6 form-group">
+                  <label>Mobile </label>
+                  <p class="labelInfo">Enter the mobile number of the highest ranking official of the Organization</p>
+                  <div class="input-group">
+                    <span class="input-group-addon">+91
+                    </span>
+                    <input type="text" class="form-control" placeholder="Enter " formControlName="organizationMobile"
+                      maxlength="10" minlength="10">
+
+                  </div>
+                  <div class="text-danger text-left mb-1">
+                    <div>Please Enter 10 digit Mobile Number.</div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <div class="panel-heading"><b>Applicant Information</b>
+                <p class="labelInfo">Information about the Applicant’s Unit for the assessment</p>
+              </div>
+              <div class="panel-body">
+
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>Name of Applicant Unit</label>
+                      <p class="labelInfo">Enter the full name of the Unit for which assessment is to be undertaken</p>
+                      <input type="text" class="form-control " placeholder="Enter " formControlName="firstName">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>Applicant Unit is in operation from (DD/MM/YYYY)</label>
+                      <p class="labelInfo">Select the date from which the proposed Unit for assessment is in operation
+                      </p>
+
+                      <div class="">
+                        <input type="date" class="form-control" placeholder="DD/MM/YY" formControlName="operationForm">
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>Highest Ranking Official</label>
+                      <p class="labelInfo">Enter the full name of the highest ranking official of the proposed unit for
+                        assessment</p>
+                      <input type="text" class="form-control " placeholder="Enter"
+                        formControlName="applicanthightestRanking">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>Designation </label>
+                      <p class="labelInfo">Enter the designation of the highest ranking official of the proposed unit
+                        for assessment</p>
+                      <input type="text" class="form-control" placeholder="Enter " id=""
+                        formControlName="contactDesignation" />
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>Email </label>
+                      <p class="labelInfo">Enter the email address of the highest ranking official of the proposed unit
+                        for assessment</p>
+
+                      <input type="text" class="form-control " placeholder="Enter " id="" formControlName="email"
+                        readonly />
+                      <div class="text-danger text-left mb-1 ">
+                        <div>Email is not valid</div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>Address of the Applicant Unit </label>
+                      <p class="labelInfo">Enter the complete address of the Unit for which assessment is to be
+                        undertaken</p>
+                      <textarea type="text" rows="7" class="form-control " placeholder="Enter" id=""
+                        formControlName="applicantAddress1"></textarea>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>Country </label>
+                      <select class="form-control" formControlName="applicantCountry">
+                        <option value=""> Select Country</option>
+                        <option value="India">India</option>
+                      </select>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>State </label>
+                      <select class="form-control" formControlName="applicantState">
+                        <option value=""> Select State</option>
+                        <option value=""> gyan </option>
+                      </select>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label>City </label>
+                      <select class="form-control" formControlName="applicantCity">
+                        <option> Select City</option>
+                        <option value=""> lko </option>
+                      </select>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label> Zip Code </label>
+                      <input type="text" class="form-control " placeholder="Enter " formControlName="applicantZipCode"
+                        maxlength="6" minlength="6">
+                      <div class="text-danger text-left mb-1">
+                        <div>Please Enter 6 digit Zip Code </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label> Mobile </label>
+                      <p class="labelInfo">Enter the mobile number of the highest ranking official of the proposed unit
+                        for assessment</p>
+                      <div class="input-group">
+                        <span class="input-group-addon">+91
+                        </span>
+                        <input type="text" class="form-control" placeholder="Enter " formControlName="mobileNo"
+                          maxlength="10" minlength="10">
+
+                      </div>
+                      <div class="text-danger text-left mb-1 ">
+                        <div>Please Enter 10 digit Mobile Number.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-12" id="">
+
+                    <div class="bTop"></div>
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>Contact Person 1</h4>
+                        </div>
+
+
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+
+                      <div class="row">
+
+                        <div class="col-md-12 form-group ">
+                          <label>Contact Person </label>
+                          <p class="labelInfo">Enter the full name of the Contact Person of the proposed unit for
+                            assessment. All the communication for assessment shall be sent to the contact person
+                            mentioned here.</p>
+
+                          <input type="text" class="form-control" placeholder="Enter " formControlName="contactPerson">
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Designation </label>
+                          <p class="labelInfo">Enter the designation of the contact person of the proposed unit for<br>
+                            assessment</p>
+
+                          <input type="text" class="form-control" placeholder="Enter " id=""
+                            formControlName="contactDesignation" />
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Email </label>
+                          <p class="labelInfo">Enter the email address of the contact person of the proposed unit for
+                            assessment</p>
+
+                          <input type="text" class="form-control " placeholder="Enter " id=""
+                            formControlName="contactEmail" />
+                          <div class="text-danger text-left mb-1 ">
+                            <div>Email is not valid</div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label> Mobile </label>
+                          <p class="labelInfo">Enter the mobile number of the contact person of the proposed unit for
+                            assessment</p>
+                          <div class="input-group">
+                            <span class="input-group-addon">+91
+                            </span>
+                            <input type="text" class="form-control" placeholder="Enter " formControlName="contactMobile"
+                              maxlength="10" minlength="10">
+
+                          </div>
+                          <div class="text-danger text-left mb-1 ">
+                            <div>Please Enter 10 digit Mobile Number.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Contact Address (Same as above) </label>
+                          &nbsp;<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                          <p class="labelInfo">Enter the complete address of the Unit for which assessment is to be
+                            undertaken</p>
+
+
+                          <textarea type="text" rows="3.5" class="form-control " placeholder="Enter" id=""
+                            formControlName="contactAddress1"></textarea>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Country </label>
+                          <select class="form-control" formControlName="contactCountry">
+                            <option value=""> Select Country</option>
+                            <option value="India">India</option>
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>State </label>
+                          <select class="form-control" formControlName="contactState">
+                            <option value=""> Select State</option>
+                            <option value=""> lko </option>
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>City </label>
+                          <select class="form-control" formControlName="contactCity">
+                            <option> Select City</option>
+                            <option value=""> lko </option>
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label> Zip Code </label>
+                          <input type="text" class="form-control " placeholder="Enter " formControlName="contactZipCode"
+                            maxlength="6" minlength="6">
+                          <div class="text-danger text-left mb-1 ">
+                            <div><small>Please Enter 6 digit Zip Code</small></div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-12" id="">
+
+                    <div class="bTop"></div>
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>Contact Person 2</h4>
+                        </div>
+
+
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+
+                      <div class="row">
+
+                        <div class="col-md-12 form-group ">
+                          <label>Contact Person </label>
+                          <p class="labelInfo">Enter the full name of the Contact Person of the proposed unit for
+                            assessment. All the communication for assessment shall be sent to the contact person
+                            mentioned here.</p>
+
+                          <input type="text" class="form-control" placeholder="Enter " formControlName="contactPerson2">
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Designation </label>
+                          <p class="labelInfo">Enter the designation of the contact person of the proposed unit for<br>
+                            assessment</p>
+
+                          <input type="text" class="form-control" placeholder="Enter " id=""
+                            formControlName="contactDesignation2" />
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Email </label>
+                          <p class="labelInfo">Enter the email address of the contact person of the proposed unit for
+                            assessment</p>
+
+                          <input type="text" class="form-control " placeholder="Enter " id=""
+                            formControlName="contactEmail2" />
+                          <div class="text-danger text-left mb-1 ">
+                            <div>Email is not valid</div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label> Mobile </label>
+                          <p class="labelInfo">Enter the mobile number of the contact person of the proposed unit for
+                            assessment</p>
+                          <div class="input-group">
+                            <span class="input-group-addon">+91
+                            </span>
+                            <input type="text" class="form-control" placeholder="Enter "
+                              formControlName="contactMobile2" maxlength="10" minlength="10">
+
+                          </div>
+                          <div class="text-danger text-left mb-1 ">
+                            <div>Please Enter 10 digit Mobile Number.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Contact Address </label>
+                          <!-- &nbsp;<input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> -->
+                          <p class="labelInfo">Enter the complete address of the Unit for which assessment is to be
+                            undertaken</p>
+
+
+                          <textarea type="text" rows="3.5" class="form-control " placeholder="Enter" id=""
+                            formControlName="contactAddress2"></textarea>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Country </label>
+                          <select class="form-control" formControlName="contactCountry2">
+                            <option value=""> Select Country</option>
+                            <option value="India">India</option>
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>State </label>
+                          <select class="form-control" formControlName="contactState2">
+                            <option value=""> Select State</option>
+                            <option value=""> lko </option>
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>City </label>
+                          <select class="form-control" formControlName="contactCity2">
+                            <option> Select City</option>
+                            <option value=""> lko </option>
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label> Zip Code </label>
+                          <input type="text" class="form-control " placeholder="Enter "
+                            formControlName="contactZipCode2" maxlength="6" minlength="6">
+                          <div class="text-danger text-left mb-1 ">
+                            <div>Please Enter 6 digit Zip Code </div>
+                          </div>
+                        </div>
+
+
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="bTop"></div>
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Sector </label>
+                          <p class="labelInfo">Select the sector of operation of the proposed unit for assessment</p>
+
+                          <select class="form-control" formControlName="sector">
+                            <option value="">Select Sector</option>
+                            <option value="Meat"> Meat </option>
+                            <option value="Alcoholic Beverages"> Alcoholic Beverages </option>
+                            <option value="Bakery"> Bakery </option>
+                            <option value="Catering"> Catering </option>
+                            <option value="Cereals"> Cereals </option>
+                            <option value="Cereals, Sauces & Seasonings"> Cereals, Sauces & Seasonings </option>
+                            <option value="Confectionary"> Confectionary </option>
+                            <option value="Dairy"> Dairy </option>
+                            <option value="Fats & Oil"> Fats & Oil </option>
+                            <option value="Food Ingredients"> Food Ingredients </option>
+                            <option value="Food Testing Laboratory"> Food Testing Laboratory </option>
+                            <option value="Foodstuff intended for Particular Nutritional Uses"> Foodstuff intended for
+                              Particular Nutritional Uses </option>
+                            <option value="Frozen Snacks"> Frozen Snacks </option>
+                            <option value="Health Supplements and Nutraceuticals"> Health Supplements and Nutraceuticals
+                            </option>
+                            <option value="Innovation IN FSMS"> Innovation IN FSMS </option>
+                            <option value="Joint  Application"> Joint Application </option>
+                            <option value="Joint Application Spices, Seasoning, Condiments"> Joint Application Spices,
+                              Seasoning, Condiments </option>
+                            <option value="Lab"> Lab </option>
+                            <option value="Manufacturing"> Manufacturing </option>
+                            <option value="Non Alcoholic Beverages"> Non Alcoholic Beverages </option>
+                            <option value="Oil"> Oil </option>
+                            <option value="Ready to eat Savouries"> Ready to eat Savouries </option>
+                            <option value="Ready to eat -Savouries & Cereals"> Ready to eat -Savouries & Cereals
+                            </option>
+                            <option value="Ready to Eat, Ready to Cook products"> Ready to Eat, Ready to Cook products
+                            </option>
+                            <option value="Rising Star, Catering"> Rising Star, Catering </option>
+                            <option value="Rising Star, Food Ingredients"> Rising Star, Food Ingredients </option>
+                            <option value="Snacks and Savories"> Snacks and Savories </option>
+                            <option value="Spices, Seasoning, Condiments"> Spices, Seasoning, Condiments </option>
+                            <option value="Substances added to Food"> Substances added to Food </option>
+                            <option value="Tea"> Tea </option>
+                            <option value="Warehousing & Storage"> Warehousing & Storage </option>
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Food Category Name and Number </label>
+                          <p class="labelInfo">Enter the food category name & number under which FSSAI license has been
+                            issued </p>
+                          <input type="text" class="form-control " placeholder="Enter"
+                            formControlName="FoodCategoryNameNumber">
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Investment in Plant & Machinery (for manufacturing unit) </label>
+                          <p class="labelInfo">Enter the amount of investment in plant & machinery at the proposed unit
+                            for assessment</p>
+                          <input type="number" class="form-control " placeholder="Enter" id=""
+                            formControlName="applicantPlant" min="0" />
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-9 form-group">
+                          <label>Annual Sales Turnover (Organization) </label>
+                          <p class="labelInfo">Enter the annual sales turnover of the Organization of the previous
+                            financial year (FY 2020-21)</p>
+                          <input type="text" class="form-control " placeholder="Enter" id=""
+                            formControlName="annualOrganization" />
+
+                        </div>
+                        <div class="col-md-3 form-group">
+                          <label>Currency </label>
+                          <select class="form-control annualOrganizationRupee"
+                            formControlName="annualOrganizationRupee">
+                            <option value="INR">INR</option>
+                            <option value="USD">USD</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Classification </label>
+                          <p class="labelInfo">Select the classification of the Organization</p>
+                          <div class="info-select-box">
+                            <select class="form-control" formControlName="classification">
+                              <option value="">Select</option>
+                              <option value="Micro">Micro</option>
+                              <option value="Small">Small</option>
+                              <option value="Medium">Medium</option>
+                              <option value="Large">Large</option>
+                            </select>
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Criteria of Assessment of the Applicant Unit </label>
+                          <p class="labelInfo">For purposes of assigning categorization to Award Applications (e.g.
+                            large, medium, small and micro)
+
+                            Refer info section for Enterprise /Unit
+                          </p>
+                          <ul>
+                            <li class="labelInfo"> Proof of the latest investment figure (either a registration
+                              certificate as per MSME Act / UAM or a certification by the auditors/authority) is to be
+                              submitted</li>
+                            <li class="labelInfo"> Proof of the latest investment figure (either a registration
+                              certificate as per MSME Act / UAM or a certification by the auditors/authority) is to be
+                              submitted</li>
+                          </ul>
+
+
+
+                          <div class="info-select-box">
+                            <select class="form-control" formControlName="criteria">
+                              <option value="">Select Criteria</option>
+                              <option value="Criteria 1">Criteria 1</option>
+                              <option value="Criteria 2 Large">Criteria 2 Large</option>
+                              <option value="Criteria 2 for SMB">Criteria 2 for SMB</option>
+                              <option value="Criteria 3 Large">Criteria 3 Large</option>
+                              <option value="Criteria 3 for SMB">Criteria 3 for SMB</option>
+                              <option value="Criteria 4">Criteria 4</option>
+                              <option value="Criteria 5">Criteria 5</option>
+                              <option value="Criteria 6">Criteria 6</option>
+                              <option value="Criteria 7">Criteria 7</option>
+                              <option value="Criteria 8">Criteria 8</option>
+                              <option value="Criteria 9">Criteria 9</option>
+                              <option value="Criteria 10">Criteria 10</option>
+                              <option value="Criteria 11">Criteria 11</option>
+                              <option value="Criteria 12">Criteria 12</option>
+                            </select>
+                            <i class="fa fa-info-circle" data-toggle="modal" data-target="#exampleModalLong"
+                              aria-hidden="true"></i>
+                          </div>
+
+
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Product & Services </label>
+                          <p class="labelInfo">Select the product/services offered by the proposed unit for assessment
+                          </p>
+                          <select class="form-control" formControlName="product">
+                            <option value="">Select Product</option>
+                            <option value="Alcoholic Beverages">Alcoholic Beverages</option>
+                            <option value="Apple Juice Concentrate, Apple Aroma,
+                          Ready to drink fruit juices and beverages, packed drinking water and fresh fruits">Apple
+                              Juice
+                              Concentrate, Apple Aroma,
+                              Ready to drink fruit juices and beverages, packed drinking water and fresh fruits</option>
+                            <option value="Atta, Atta with multi grains, Fortified Atta">Atta, Atta with multi grains,
+                              Fortified
+                              Atta</option>
+                            <option value="Bakery Products">Bakery Products</option>
+                            <option value="Besan (Pulses Based product) ">Besan (Pulses Based product) </option>
+                            <option
+                              value="Biscuits (Chocofills, Marie, Bounce- Cream, Milky Magic, Hifi-Butter, Cashew)">
+                              Biscuits (Chocofills, Marie, Bounce- Cream, Milky Magic, Hifi-Butter, Cashew)</option>
+                            <option
+                              value="Blending & Bottling of Indian Made Foreign Liquor (IMFL) & Bottling of Blended Scotch Whiskey">
+                              Blending & Bottling of Indian Made Foreign Liquor (IMFL) & Bottling of Blended Scotch
+                              Whiskey
+                            </option>
+                            <option value="Blending and Packaging of Tea in Poly Pouches & Pet Jars">Blending and
+                              Packaging of
+                              Tea in Poly Pouches & Pet Jars</option>
+                            <option value="Blending and Packaging of Tea in Retail pack">Blending and Packaging of Tea
+                              in Retail
+                              pack</option>
+                            <option
+                              value="Chilled and frozen boneless halal buffalo meat B) Frozen and Aseptic fruit pulp C) Frozen fruit slices C) By products( Meat cum bone meal, Blood meal, Animal fat, Gel bone) D) Dried Pet treats E) Canned meat F) Cooked frozen offals">
+                              Chilled and frozen boneless halal buffalo meat B) Frozen and Aseptic fruit pulp C) Frozen
+                              fruit
+                              slices C) By products( Meat cum bone meal, Blood meal, Animal fat, Gel bone) D) Dried Pet
+                              treats
+                              E) Canned meat F) Cooked frozen offals</option>
+                            <option value="Chocolate & Confectionery">Chocolate & Confectionery</option>
+                            <option value="Cooked and Uncooked food">Cooked and Uncooked food</option>
+                            <option value="Cooked Products, cold chain products, RTE-RTC products">Cooked Products, cold
+                              chain
+                              products, RTE-RTC products</option>
+                            <option value="Edible Oil and FMCG">Edible Oil and FMCG</option>
+                            <option value="Edible Oil and Texturized Soya Protein">Edible Oil and Texturized Soya
+                              Protein
+                            </option>
+                            <option value="Edible Oils & Lecithin">Edible Oils & Lecithin</option>
+                            <option value="Edible Oils & Oleo Chemicals">Edible Oils & Oleo Chemicals</option>
+                            <option value="Fish and Prawn">Fish and Prawn</option>
+                            <option value="Food Ingredients">Food Ingredients</option>
+                            <option
+                              value="Frozen Food Manufacturer – IQF potato based products such as French fries , potato wedges etc.">
+                              Frozen Food Manufacturer – IQF potato based products such as French fries , potato wedges
+                              etc.
+                            </option>
+                            <option value="Health Supplements and Nutraceuticals">Health Supplements and Nutraceuticals
+                            </option>
+                            <option value="Herbal Health Food Bar">Herbal Health Food Bar</option>
+                            <option value="Hotels &amp; Eateries with cluster and Dark Kitchens">Hotels &amp; Eateries
+                              with
+                              cluster and Dark Kitchens</option>
+                            <option value="Infant Cereal, Health Care Nutritional Products">Infant Cereal, Health Care
+                              Nutritional Products</option>
+                            <option value="Infant Formula, Follow up Formula, FSMP, FSDU">Infant Formula, Follow up
+                              Formula,
+                              FSMP, FSDU</option>
+                            <option value="Instant Tea">Instant Tea</option>
+                            <option value="Laboratory Testing and Analysis Services">Laboratory Testing and Analysis
+                              Services
+                            </option>
+                            <option value="Malt Based Foods">Malt Based Foods</option>
+                            <option value="Maltodextrin Powder">Maltodextrin Powder</option>
+                            <option
+                              value="Manufacturing (Blending & Bottling) of Indian Made Foreign Liquor (IMFL) and Blended Scotch Whisky, Manufacturing of Grain Neutral Spirit(GNS)">
+                              Manufacturing (Blending & Bottling) of Indian Made Foreign Liquor (IMFL) and Blended
+                              Scotch
+                              Whisky, Manufacturing of Grain Neutral Spirit(GNS)</option>
+                            <option
+                              value="Manufacturing and dispatch of liquid flavours (liquid and emulsion), and powder flavours (seasoning, spray dried, and dry powder blend)">
+                              Manufacturing and dispatch of liquid flavours (liquid and emulsion), and powder flavours
+                              (seasoning, spray dried, and dry powder blend)</option>
+                            <option value="Milk and Milk Product">Milk and Milk Product</option>
+                            <option value="Noodles, Pasta & Seasoning">Noodles, Pasta & Seasoning</option>
+                            <option value="Noodles, Sauces, Seasonings">Noodles, Sauces, Seasonings</option>
+                            <option value="Oleoresins and Essential oils">Oleoresins and Essential oils</option>
+                            <option value="POMEGRANATE, BANANA, ARILS, COCONUT">POMEGRANATE, BANANA, ARILS, COCONUT
+                            </option>
+                            <option value="Potato Chips">Potato Chips</option>
+                            <option value="Potato Chips and Extruded Snacks (Namkeens)">Potato Chips and Extruded Snacks
+                              (Namkeens)</option>
+                            <option value="Potato Chips, cereal, flour ,starch based, Instant Noodle and Seasoning">
+                              Potato
+                              Chips, cereal, flour ,starch based, Instant Noodle and Seasoning</option>
+                            <option value="Potato chips, corn chips, extruded snacks">Potato chips, corn chips, extruded
+                              snacks
+                            </option>
+                            <option value="Ready to eat Savories, instant noodles with seasoning">Ready to eat Savories,
+                              instant
+                              noodles with seasoning</option>
+                            <option value="Refined Edible Palm, Sunflower Oil & Vanaspati">Refined Edible Palm,
+                              Sunflower Oil &
+                              Vanaspati</option>
+                            <option value="SALT, SPICES, PULSES">SALT, SPICES, PULSES</option>
+                            <option value="Salt, Spices, Soup">Salt, Spices, Soup</option>
+                            <option value="Snacks and Savories">Snacks and Savories</option>
+                            <option value="Soya Meal, Soya Refined Oil, Soya Lecithin and Gram Flour(Besan)">Soya Meal,
+                              Soya
+                              Refined Oil, Soya Lecithin and Gram Flour(Besan)</option>
+                            <option value="Soybean Refined oil &
+                          Soybean lecithin">Soybean Refined oil &
+                              Soybean lecithin</option>
+                            <option value="Spices, Seasoning, Condiments">Spices, Seasoning, Condiments</option>
+                            <option value="Sunfeast Bounce, Sunfeast Moms Magic">Sunfeast Bounce, Sunfeast Moms Magic
+                            </option>
+                            <option value="Testing and Analysis of Food Items">Testing and Analysis of Food Items
+                            </option>
+                            <option value="Tetra Pak Fruit Juices">Tetra Pak Fruit Juices</option>
+                            <option value="Vitamin/ Mineral Premix & Nutraceutical">Vitamin/ Mineral Premix &
+                              Nutraceutical
+                            </option>
+                            <option
+                              value="Whole, Powdered, Steam sterilized spices in bulk and retail packs   Fresh Produce- Chilli">
+                              Whole, Powdered, Steam sterilized spices in bulk and retail packs Fresh Produce- Chilli
+                            </option>
+                          </select>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Employee </label>
+                          <p class="labelInfo">Enter the total number of employees at the proposed unit for assessment
+                          </p>
+                          <input type="number" class="form-control " placeholder="Enter" formControlName="totalEmployee"
+                            min="0">
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Investment in Equipment (for service unit) </label>
+                          <p class="labelInfo">Enter the amount of investment in equipments at the proposed unit for
+                            assessment</p>
+                          <input type="number" class="form-control" placeholder="Enter" id=""
+                            formControlName="applicantEquipment" min="0" />
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-9 form-group">
+                          <label>Annual Sales Turnover (proposed Applicant Unit)</label>
+                          <p class="labelInfo">Enter the annual sales turnover of the proposed applicant unit for
+                            assessment of the previous financial year (FY 2020-21)</p>
+                          <input type="text" class="form-control " placeholder="Enter " id=""
+                            formControlName="annualApplicant" />
+
+                        </div>
+                        <div class="col-md-3 form-group">
+                          <label>Currency </label>
+
+                          <select class="form-control annualApplicantRupee" formControlName="annualApplicantRupee">
+                            <option value="INR" selected>INR</option>
+                            <option value="USD">USD</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 form-group">
+                          <label>Form 14A</label>
+                          <p class="labelInfo">Upload Form 14A</p>
+                          <input type="file" class="form-control " formControlName="uploadForm" />
+
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="submit" name="submit" value="Submit" class="btn m-b-xs w-sm btn-success"> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+
+<!-- 
+        <div style="text-align: right; margin:10px 0px;">
+          <button type="submit" class=" bt danger">Save</button>
+        </div> -->
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLongTitle">Criteria Table, 2022</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Nature of Business </th>
+              <th scope="col">Large Organisations </th>
+              <th scope="col">Medium Organisations </th>
+              <th scope="col">Small Organisations</th>
+              <th scope="col">Basis of Criteria </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="col">Food Vendors (Mobile Carts and Stalls, Meat Shops, Sweet Meat Shops, Confectioneriees,
+                Vending and Dispensing.)</td>
+              <td scope="col">Criteria 1 </td>
+              <td scope="col">Criteria 1 </td>
+              <td scope="col">Criteria 1 </td>
+              <td scope="col">Based on FSSAI Checkpoints and CII 14 Points Check </td>
+            </tr>
+
+            <tr>
+              <td scope="col">Food Service : Hotels & Eateries (Involved in Preparation, Serving, Take Aways with
+                Permanent Establishment and Address) e.g: Restaurants, Catering, Institutional Canteens, Cloud Kichen,
+                Food Courts)</td>
+              <td scope="col">Criteria 2 Large </td>
+              <td scope="col">Criteria 2 for SMB </td>
+              <td scope="col">Criteria 2 for SMB </td>
+              <td scope="col">Based on ISO 22000, FSSR and PRP for Food Service Establishment Having permanent addresses
+                + Change Management Initiatives + Social Compilance </td>
+            </tr>
+
+            <tr>
+              <td scope="col">Manufacturing (Food Processing Companies)</td>
+              <td scope="col">Criteria 3 Large </td>
+              <td scope="col">Criteria 3 for SMB </td>
+              <td scope="col">Criteria 3 for SMB </td>
+              <td scope="col">Based on ISO 22000: 2018 ISO 22002-1 + FSSR, Change Management Initiatives + Social
+                Compliance</td>
+            </tr>
+
+            <tr>
+              <td scope="col">Food Service: Food Wholesale, Retail, Warehousing, Transportation, C&F</td>
+              <td scope="col">Criteria 4 </td>
+              <td scope="col">Criteria 4</td>
+              <td scope="col">Criteria 4 </td>
+              <td scope="col">Based on FSSR + Risk Analysis + Social Compliance+ Change Management Initiatives</td>
+            </tr>
+
+            <tr>
+              <td scope="col">Primary Production: Fruits and Vegetables Fresh Produce (On farm practices, Grading.
+                Packing, Dispatch)</td>
+              <td scope="col">Criteria 5 </td>
+              <td scope="col">Criteria 5</td>
+              <td scope="col">Criteria 5 </td>
+              <td scope="col">Based on Global Gap, Codex Standards + Social and Regulatory Compliance</td>
+            </tr>
+
+            <tr>
+              <td scope="col">Packaging & Food Chain Inputs Criteria 6 Providers (Manufacturing of Cleaning &
+                Sanitation, Food Equipment, Pest Control)</td>
+              <td scope="col">Criteria 6 </td>
+              <td scope="col">Criteria 6</td>
+              <td scope="col">Criteria 6 </td>
+              <td scope="col">Based on ISO 22000; 2018 & Best Practices in PRP&GMP Change Management Initiatives +
+                Social & Regulatory Compliance </td>
+            </tr>
+
+            <tr>
+              <td scope="col">Joint Application of Customer & Supplier / Co-Packers / Franchise 3rd Party - Food Safety
+                Excellence through Partnership Development</td>
+              <td scope="col">Criteria 7 </td>
+              <td scope="col">Criteria 7</td>
+              <td scope="col">Criteria 7 </td>
+              <td scope="col">Best Practices in Partnership Development Criteria 3 or Criteria 2 as applicable</td>
+            </tr>
+
+            <tr>
+              <td scope="col">Primary Production: Dairy Farm</td>
+              <td scope="col">Criteria 8 </td>
+              <td scope="col">Criteria 8</td>
+              <td scope="col">Criteria 8 </td>
+              <td scope="col">Based on GLOBAL GAP + Social Compliance </td>
+            </tr>
+
+            <tr>
+              <td scope="col">E-commerce- online Marketplace (Grocery. fruits and Vegetables & products)</td>
+              <td scope="col">Criteria 9 </td>
+              <td scope="col">Criteria 9</td>
+              <td scope="col">Criteria 9 </td>
+              <td scope="col">Based on FSSAI checkpoints for online food delivery + ISO 22000:2018 + FSSR for retail &
+                distribution</td>
+            </tr>
+            <tr>
+              <td scope="col">E-commerce-Ready to eat cooked Meal </td>
+              <td scope="col">Criteria 10 </td>
+              <td scope="col">Criteria 10</td>
+              <td scope="col">Criteria 10 </td>
+              <td scope="col">Based on FSSAI checkpoints for catering and online food delivery + ISO 22000:2018</td>
+            </tr>
+
+            <tr>
+              <td scope="col">Laboratories Performance of Food Analysis & Testing Labs </td>
+              <td scope="col">Criteria 11 </td>
+              <td scope="col">Criteria 11</td>
+              <td scope="col">Criteria 11 </td>
+              <td scope="col">Based on ISO 17025 2017, Best Practices & Leadership Initiatives+ Statutory & Social
+                Compliance</td>
+            </tr>
+
+            <tr>
+              <td scope="col">Innovation Management with Food Safety</td>
+              <td scope="col">Criteria 12 </td>
+              <td scope="col">Criteria 12</td>
+              <td scope="col">Criteria 12 </td>
+              <td scope="col">Innovation in Best Practices in FSMS</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("newsectionbtn").onclick = function () {
+    var container = document.getElementById("container");
+    var section = document.getElementById("mainsection");
+    container.appendChild(section.cloneNode(true));
+  }
+</script>

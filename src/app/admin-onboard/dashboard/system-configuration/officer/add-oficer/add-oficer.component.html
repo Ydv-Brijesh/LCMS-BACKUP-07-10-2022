@@ -1,0 +1,164 @@
+
+ <div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class="m-n font-thin text-white">Add Officer</h3>
+                </div>
+            </div>
+        </div>
+       
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <form role="form" [formGroup]="officerForm" autocomplete="off">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <legend>
+                                    <span class="font-weight-600">Officer Information</span>
+                                </legend>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">First Name</label>
+                                    <input formControlName="firstName" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Middle Name</label>
+                                    <input formControlName="middleName" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Last Name</label>
+                                    <input formControlName="lastName" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">DOB</label>
+                                    <input formControlNmae="dob" type="date" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Gender</label>
+                                    <input formControlName="gender" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Father / Husband Name</label>
+                                    <input formControlName="fatherName" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Aadhaar Number</label>
+                                    <input formControlName="aadhaarNo" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">PAN Number</label>
+                                    <input formControlName="panNo" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Mobile Number</label>
+                                    <input formControlName="mobileNumber" type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Email</label>
+                                    <input formControlName="email" type="email" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Designation</label>
+                                    <select formControlName="designation" class="form-control model_code" name="model_code">
+                                        <option value=''>Select Designation</option>
+                                        <option value="Accounts Officer">Accounts Officer</option>
+                                        <option value="Administration Head">Administration Head</option>
+                                        <option value="Chief Financial Officer">Chief Financial Officer</option>
+                                        <option value="District Officer">District Officer</option>
+                                        <option value="District Collectorate">District Collectorate</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">State</label>
+                                    <select class="form-control model_code" name="model_code">
+                                        <option value=''>Select State</option>
+                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">District</label>
+                                    <select class="form-control model_code" name="model_code">
+                                        <option value=''>Select District</option>
+                                        <option value="Lucknow">Lucknow</option>
+                                        <option value="Varanasi">Varanasi</option>
+                                        <option value="Mohanlalganj">Mohanlalganj</option>
+                                        <option value="Allahbad">Allahbad</option>
+                                        <option value="Lakhimpur">Lakhimpur</option>
+                                        <option value="Kanpur">Kanpur</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Address 1</label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Address 2</label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Address 3</label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label font-weight-600">Pincode</label>
+                                    <input type="text" class="form-control" name="fin_no">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn m-b-xs btn-md btn-success" (click)="onSubmit()">Save</a>
+                                <a class="btn m-b-xs btn-md btn-primary" (click)="onSubmit()">Save and New</a>
+                                <a class="btn m-b-xs btn-md btn-default" (click)="cancel()">Cancel</a>
+                            </div>
+                        </div>
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

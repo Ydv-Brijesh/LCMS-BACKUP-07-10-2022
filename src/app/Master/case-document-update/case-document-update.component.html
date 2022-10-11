@@ -1,0 +1,89 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Update Case Documents
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head-title">
+                                <h4>Case Documents Information</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <form [formGroup]="saveForm" (ngSubmit)="clickFunction()">
+                      
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Document Type</label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="case_doc_type">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Document Name </label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="case_doc_name">
+                                   
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <!-- <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Attached by</label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="case_doc_attached_by">
+                                    
+                                </div>
+                            </div> -->
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Attach Document</label>
+                                    <input class="form-control" type="file" id="myfile" name="myfile"
+                                    (change)="uploadDocument($event)" >
+                                </div>
+                            </div>
+
+                       
+                         
+                        </div>
+                  
+                   
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="button_group_fotter">
+    
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

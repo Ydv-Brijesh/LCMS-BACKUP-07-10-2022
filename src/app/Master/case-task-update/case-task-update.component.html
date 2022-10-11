@@ -1,0 +1,135 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Update Case Task
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head-title">
+                                <h4>Case Task Information</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <form [formGroup]="saveForm" (ngSubmit)="clickFunction()">
+                      
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Task Type <span class="text-danger">*</span></label>
+                                    <!-- <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="case_task_type"> -->
+                                        <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_task_type">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataTaskType" value={{data._id}}>{{data.task_type_name}}</option>
+                                    </select>
+                                    <div *ngIf="task.case_task_type.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="task.case_task_type.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Task Name <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="case_task_name">
+                                        <div *ngIf="task.case_task_name.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="task.case_task_name.errors">This field is required</div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Task Subject </label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="case_task_subject">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Task Owner <span class="text-danger">*</span></label>
+                                    <!-- <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="case_task_owner"> -->
+                                    <select class="form-control select-language form-control-sm validation"
+                                    formControlName="case_task_owner">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataUser" value={{data._id}}>{{data.username}}</option>
+                                    </select>
+                                    <div *ngIf="task.case_task_owner.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="task.case_task_owner.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                       
+                         
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Task Due Date</label>
+                                    <input class="form-control" type="date" placeholder="Enter.."
+                                    formControlName="case_task_duedate">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Task Status</label>
+                                    <!-- <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="status"> -->
+
+                                    <select class="form-control select-language form-control-sm validation"
+                                    formControlName="status">
+                                        <option value=''>Select</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Complete">Complete</option>
+                                    </select>
+                                </div>
+                            </div>
+                          
+                        </div>
+                   
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="button_group_fotter">
+    
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

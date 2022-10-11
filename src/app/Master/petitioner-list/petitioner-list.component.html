@@ -1,0 +1,89 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+      <!-- main header -->
+      <div class=" wrapper-md">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12">
+            <h3 class="m-n font-thin text-white">Petitioner List View</h3>
+          </div>
+          <div class="col-sm-6 text-right poppins hidden-xs">
+           
+          </div>
+        </div>
+      </div>
+      <!-- / main header -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card no-shadow">
+            <div class="tab-content bg-seashell">
+              <div role="tabpanel" class="tab-pane active g-py-0">
+                <div class="row row-xs">
+                  <div class="row" style="margin-top: 1rem; margin-bottom: .5rem;">
+                  
+                  </div>
+                  <table class="table bg-white newTable" datatable [dtOptions]="dtOptions"
+                  [dtTrigger]="dtTrigger" id="portal-drivers">
+                    <thead>
+                      <tr role="row">
+                        <th class="text-center">#</th>
+                        <th>Code</th>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile No.</th>
+                        <th>Designation</th>
+                        <th>District</th>
+                        <th>Address</th>
+                        <th>Block</th>
+                        <th>Village</th>
+                        <th>Pincode</th>
+                        <th>Divition</th>
+                        <th class="text-center">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of getDataPet; let i= index;">
+                        <td class="text-center">{{ [i+1] }}</td>
+                        <td>{{data.code}}</td>
+                        <td>{{data?.pet_employee}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data?.email}}</td>
+                        <td>{{data?.mobile}}</td>
+                        <td>{{data?.designation}}</td>
+                        <td>{{data?.result[0]?.district}}</td>
+                        <td>{{data?.address}}</td>
+                        
+                        <td>{{data?.block}}</td>
+                        <td>{{data?.village}}</td>
+                        <td>{{data?.pincode}}</td>
+                        
+                        <td>{{data?.divition}}</td>
+
+                        <td td class="text-center">
+                            <div class="btn-group dropdown">
+                              <button class="btn btn-default w-xxs btn-sm r-2x" data-toggle="dropdown"
+                                aria-expanded="false"><i class="fa fa-cog g-px-5  text-info text-sm"></i> <span class=""><i
+                                    class="fa fa-caret-down"></i></span></button>
+                              <ul class="dropdown-menu">
+                                <li><a href="/petitioner-update/{{data?._id}}"><i class="fa fa-edit" ></i> Edit </a></li>
+                                <li><a (click)="deleteUser(data?._id)"><i class="fa fa-trash-o"></i> Delete </a></li>
+                                <!-- <li><a href="#"><i class="fa fa-lock"></i> Lock </a> </li> -->
+                              </ul>
+                            </div>
+                          </td>
+                      </tr> 
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  
+  </div>

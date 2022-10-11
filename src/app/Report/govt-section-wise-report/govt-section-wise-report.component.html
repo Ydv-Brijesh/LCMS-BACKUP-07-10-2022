@@ -1,0 +1,111 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+      <!-- main header -->
+      <div class=" wrapper-md mw">
+        <div class="row">
+          <div class="col-sm-6 col-xs-12">
+            <h3 class="m-n font-thin text-white"> Govt. Section Wise Report</h3>
+          </div>
+          <div class="col-sm-6 text-right poppins hidden-xs">
+      
+          </div>
+        </div>
+      </div>
+      <!-- / main header -->
+      <div class="row mw">
+        <div class="col-md-12">
+          <div class="card no-shadow">
+            <div class="tab-content bg-seashell">
+              <div role="tabpanel" class="tab-pane active g-py-0">
+                <div class="row row-xs">
+              
+                        <div class="row">
+                            
+                            <div class="col-md-4">
+                                <div class="input_grp form-group"> 
+                                    <label for="">GOVT. SECTION / शासन अनुभाग	</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                     id="department" (change)="getDataDepartment($event)">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataSect" value={{data.section_name}}>{{data.section_name}}
+                                    </option>
+                                </select>
+                               
+                                </div>
+                            </div>
+                         
+                        </div>
+                        
+                  
+                </div> 
+              </div>  
+              <div role="tabpanel" class="tab-pane active g-py-0">
+                <div class="row row-xs">
+                    <table  class="table bg-white newTable" datatable [dtOptions]="dtOptions"
+                            [dtTrigger]="dtTrigger" id="portal-drivers">
+                            <thead>
+                                <tr role="row">
+                                    <th class="text-center">SI. No. / क्र सं०</th>
+                                    <th>Govt. Section / शासन अनुभाग</th>
+                                    <th style="width: 4rem;">Department / विभाग</th>
+                                    <th>Case Year / वाद वर्ष</th>
+                                    <th>Case No. / वाद संख्या</th>
+                                    <th>Court / मा0 न्यायालय</th>
+                                    <th>Organization / CE</th>
+                                    <th>SE </th>
+                                    <th>EE</th>
+                                    <th>Case Type / वाद प्रकार</th>
+                                    <th>Case Subject / वाद विषय </th>
+                                    <th>Petitioner / वादीगण</th>
+                                    <th>Respondent / प्रतिवादीगण</th>
+                                    <!-- <th>Case Description / प्रकरण संक्षिप्त विवरण</th> -->
+            
+                                    <th>District / जिला</th>
+                                    
+                                    <th>H.O. Section / Cell</th>
+                                    <th>Affidavit Filing Date / प्रतिशपथ पत्र दाख़िल कराने की तिथि</th>
+                                    <th>Rejoinder</th>
+                                    <th>Rejoinder Date</th>
+                                  </tr>
+                            </thead>
+                            <tbody>
+                                <tr role="row"  *ngFor="let data of getData; let i= index;">
+                                    <td class="text-center">{{ [i+1] }}</td>
+                                    <td>{{data?.case_section_id}}</td>
+                                    <td style="width: 4rem;">{{data?.case_orgnaization_id}}</td> 
+                                    <td>{{data?.case_year}}</td>
+                                    <td>{{data?.case_no}}</td>
+                                    <td>{{data?.case_court_id}}</td>
+                                    <td>{{data?.case_sun_org_id}}</td>
+                                    <td>{{data?.case_se_id}} </td>
+                                    <td>{{data?.case_ee_id}}</td>
+                                    <td>{{data?.case_type_id}}</td>
+                                    <td>{{data?.case_subject}}</td>
+                                    <td>{{data?.case_petitioner_id}}</td>
+                                    <td>{{data?.case_respondent_id}}</td>
+                                    <!-- <td>{{data?.case_description}}</td> -->
+            
+                                    <td>{{data?.case_district_id}}</td>
+                                   
+                                    <td>{{data?.case_ho_id}}</td>
+                                    <td>{{data?.case_affidavit_filing_date}}</td>
+                                    <td>{{data?.case_rejoinder}}</td>
+                                    <td>{{data?.case_rejoinder_date}}</td>
+                                </tr>
+                            
+                            </tbody>
+                    
+                  </table>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  
+  </div>

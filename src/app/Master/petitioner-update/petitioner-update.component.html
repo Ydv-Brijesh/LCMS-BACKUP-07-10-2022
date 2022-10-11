@@ -1,0 +1,191 @@
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Update Petitioner
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head-title">
+                                <h4>Petitioner Information</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <form [formGroup]="saveForm" (ngSubmit)="clickFunction()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Petitioner Type <span class="text-danger">*</span></label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" formControlName="pet_employee" value="Employee" >Employee
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input  type="radio" formControlName="pet_employee" value="Non Employee" >Non Employee
+                                        </label>
+    
+                                    </div>
+                                    <!-- <div *ngIf="f.pet_employee.errors && isValidFormSubmitted"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="f.pet_employee.errors">This field is required</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Name / नाम <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="name">
+                                    <div *ngIf="f.name.errors && isValidFormSubmitted"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="f.name.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Designation / पद </label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="designation">
+                                    <!-- <div *ngIf="f.designation.errors && isValidFormSubmitted"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="f.designation.errors">This field is required</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">District / जिला <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="district_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataDist" value={{data._id}}>{{data.district}}
+                                        </option>
+    
+                                    </select>
+                                    <div *ngIf="f.district_id.errors && isValidFormSubmitted"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="f.district_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Email / ईमेल </label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="email">
+                                    <!-- <div *ngIf="f.email.errors && isValidFormSubmitted"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="f.email.errors">This field is required</div>
+                                    </div> -->
+                                    <div *ngIf="f.email.errors && f.email.errors.pattern && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.email.errors.pattern"><small>Email is not valid</small></div>
+
+                                </div>
+                                </div>
+                            </div>
+                         
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Phone / फ़ोन </label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="mobile" minlength="10" maxlength="10">
+                                    <!-- <div *ngIf="f.mobile.errors && isValidFormSubmitted"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="f.mobile.errors">This field is required</div>
+                                    </div> -->
+                                    <div *ngIf="f.mobile.errors && f.mobile.errors.pattern"
+                                    class="text-danger text-left mb-1 errorcontrols">
+                                    <div *ngIf="f.mobile.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Address / पता</label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="address">
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Block / ब्लॉक</label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="block">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Village / ग्राम</label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="village">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Pincode / पिन कोड</label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="pincode" >
+
+                                        <div *ngIf="f.pincode.errors && f.pincode.errors.pattern"
+                                        class="text-danger text-left mb-1 errorcontrols">
+                                        <div *ngIf="f.pincode.errors.pattern">Please, Enter 6 digit Pincode </div>
+                                        </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Division / विभाजन</label>
+                                    <input class="form-control" type="text" placeholder="Enter.."
+                                        formControlName="divition">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="button_group_fotter">
+    
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

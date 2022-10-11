@@ -1,0 +1,1779 @@
+
+
+<app-header></app-header>
+<app-sidenav></app-sidenav>
+<div id="content" class="app-content" role="main">
+    <div class="app-content-body ">
+        <div class="bg-red lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <!-- <h3 class="m-n font-thin text-white">Dashboard</h3> -->
+                    <h3 class="m-n font-thin text-white"><i class="fa fa-angle-left" aria-hidden="true"></i> Create Case
+                    </h3>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper-md">
+            <div class="panel b-a">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <div> <img src="./assets/img/dashboard.png" alt="." style="width: 100%;"></div> -->
+                            <div class="head-title">
+                                <h4>Case Information </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bb"></div>
+                <div class="panel-body">
+                    <form [formGroup]="saveFormMain" (ngSubmit)="clickFunctionMain()">
+                        <div class="row">
+                         
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Department / विभाग <span class="text-danger">*</span></label>
+                                   
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_orgnaization_id" (change)="getSubOrgByOrgd($event)">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataO" value={{data._id}}>{{data.org_name}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="main.case_orgnaization_id.errors && isValidFormSubmittedMain"
+                                    class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_orgnaization_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" formControlName="created_by">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Organization / CE <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_sun_org_id" (change)="getSeBySubOrgD($event)">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let dobj of subOrgDataByOrg" value={{dobj._id}}>
+                                            {{dobj.sub_org_name}} </option>
+                                    </select>
+                                    <div *ngIf="main.case_sun_org_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_sun_org_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">SE <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_se_id" (change)="getEeBySeD($event)">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of seDataBySubOrg" value={{data._id}}>{{data.se_name}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="main.case_se_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_se_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                       
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">EE <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_ee_id" (change)="getEeByIdData($event)">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of EeDataBySe" value={{data._id}}>{{data.ee_name}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="main.case_ee_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_ee_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="input_grp form-group">
+                                    <label for="">Is Contempt / अवमानना </label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input
+                                                onclick="setVisibility('sub3', 'inline'), Visibility('sub4', 'inline')"
+                                                type="radio" formControlName="case_contempt" value="Yes">Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input onclick="setVisibility('sub3', 'none'), Visibility('sub4', 'none')"
+                                                type="radio" formControlName="case_contempt" value="No">No
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="col-md-4">
+                                <div class="input_grp form-group">
+                                    <label for="">Is SLP / अनुमति याचिका</label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="slp" value="Yes" id="slpyes" value="Yes"
+                                                formControlName="case_slp">Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="slp" value="No" id="slpno" value="No"
+                                                formControlName="case_slp" [attr.checked]="true">No
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="col-md-4">
+                                <div class="input_grp form-group">
+                                    <label for="">Is HOD Office Case?</label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="hod" value="Yes" id="hod" value="Yes"
+                                                formControlName="hod">Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="hod" value="No" id="hod" value="No"
+                                                formControlName="hod" [attr.checked]="true">No
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="sub4" style="display:none;">
+                            <div class="col-md-4">
+                                <div class="input_grp form-group" >
+                                    <label for="">Contempt Case No. / अवमाननावाद संख्या</label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_contempt_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getCaseNo" value={{data.case_no}}>{{data.case_no}}
+                                        </option>
+                                    </select>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="input_grp form-group" >
+                                    <label for="">Reason for Non-Compliance / पारित आदेश का विवरण जिसका अनुपालन ना करने पर अवमाननावाद दायर किया गया</label>
+                                    <textarea class="form-control" formControlName="reason_non_compliance" id="" cols="100" rows="2" placeholder="Enter.."></textarea>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row"> -->
+
+
+                            <!-- <div class="col-md-12 form-group"> -->
+
+                                <a data-toggle="modal" data-target="#largeModal00" id="sub3" href="javascript:void(0)"
+                                    style="color:blue;  text-decoration: underline; display: none;"></a>
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Court / मा0 न्यायालय <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_court_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataC" value={{data._id}}>{{data.court_name}}
+                                        </option>
+
+                                    </select>
+                                    <div *ngIf="main.case_court_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_court_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">District / जिला <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_district_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataDist" value={{data._id}}>{{data.district}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="main.case_district_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_district_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Govt. Section / शासन अनुभाग <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_section_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataS" value={{data._id}}>{{data.section_name}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="main.case_section_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_section_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">H.O. Section / Cell <span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_ho_id" >
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataH" value={{data._id}}>{{data.ho_name}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="main.case_ho_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_ho_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          
+                        </div>
+                   
+                     
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Writ Notice No. / रिट  सूचना संख्या</label>
+                                    <input class="form-control" placeholder="Enter Notice No." type="text"
+                                        formControlName="case_notice_no">
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Writ Status <span
+                                        class="text-danger">*</span></label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input
+                                                (click)="writ_Status('inline')"
+                                                type="radio" formControlName="writ_status" value="Accepted" checked>Accepted
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input  (click)="writ_Status('none')"
+                                                type="radio" formControlName="writ_status" value="Not Accepted">Not Accepted
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="writ1"  *ngIf="writ_statusCondition">
+                         
+                            <div class="col-md-6" >
+                                <div class="input_grp form-group">
+                                    <label for="">Case No. / वाद संख्या <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" formControlName="case_no"
+                                        placeholder="Enter Case No.">
+                                    <div *ngIf="main.case_no.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_no.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" >
+                                <div class="input_grp form-group">
+                                    
+                                    <label for="">Case Year / वाद वर्ष</label>
+                              
+                                        <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_year">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let i of year " value={{i}}>{{i}}</option>
+                                        </select>
+
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Petitioner / वादीगण <span class="text-danger">*</span></label>
+                                    <!-- <input class="form-control" type="text"> -->
+                                    <div class="input-group">
+                                      
+                                        <!-- <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_petitioner_id" (change)="getPetiById($event)">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let data of getDataPet" value={{data.name}}>{{data.name}}</option>
+                                        
+                                        </select> -->
+ 
+                                        <mat-form-field appearance="fill" class="field-css">
+                                            <mat-select formControlName="case_petitioner_id" (change)="getPetiById($event)"  multiple (selectionChange)="filter($event)">
+                                               
+                                              <mat-option *ngFor="let data of getDataPet" value={{data._id}}  >{{data.name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+
+
+
+                                        <!-- <mat-form-field class="example-full-width" appearance="fill">
+                                          
+                                            <input type="text"
+                                                   placeholder="Pick one"
+                                                   aria-label="Number" formControlName="case_petitioner_id"
+                                                   matInput
+                                                   [formControl]="myControl"
+                                                   [matAutocomplete]="auto">
+                                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+                                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+                                                    {{option.name}}
+                                                  </mat-option>
+                                            </mat-autocomplete>
+                                        </mat-form-field> -->
+
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#largeModal"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+
+                                    </div>
+                                    <div *ngIf="main.case_petitioner_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_petitioner_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Respondent / प्रतिवादीगण <span class="text-danger">*</span></label>
+                         
+                                    <div class="input-group">
+                                        
+                                        <!-- <select class="form-control select-language form-control-sm validation"
+                                            formControlName="case_respondent_id" (change)="getResById($event)">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let data of getDataRes" value={{data.res_code}}>{{data.res_name}}
+                                            </option>
+                                        </select> -->
+
+
+                                        <mat-form-field appearance="fill">
+                                            <mat-select formControlName="case_respondent_id" (change)="getResById($event)"  multiple (selectionChange)="filterRespondent($event)">
+                                               
+                                              <mat-option *ngFor="let data of getDataRes" value={{data._id}}>{{data.res_name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#largeModal1"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+                                    </div>
+
+                                    <div *ngIf="main.case_respondent_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_respondent_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Filing Date / दाखिल तिथि </label>
+                                    <input class="form-control" type="date" formControlName="case_filing_date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Type / वाद प्रकार <span class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_type_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataT" value={{data._id}}>{{data.case_type_name}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="main.case_type_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_type_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                           
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Subject / वाद विषय <span
+                                        class="text-danger">*</span></label>
+                               
+                                        <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_subject">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDatacaseSub" value={{data._id}}>{{data.case_subject_name}}</option>
+                                    </select>
+                                    <div *ngIf="main.case_subject.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_subject.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Classification / वाद वर्गीकरण <span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_classification_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataCl" value={{data._id}}>
+                                            {{data.case_classi_name}}</option>
+                                    </select>
+                                    <div *ngIf="main.case_classification_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_classification_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Status / वाद अद्यतन स्थिति <span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_status_id">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getDataCS" value={{data._id}}>
+                                            {{data.case_status_name}}</option>
+                                    </select>
+                                    <div *ngIf="main.case_status_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_status_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Prayer / वाद प्रार्थना</label>
+                                    <textarea class="form-control" type="text" formControlName="case_prayer"
+                                        placeholder="Enter Case Prayer"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Case Description / प्रकरण संक्षिप्त विवरण</label>
+                                    <textarea class="form-control" type="text" formControlName="case_description"
+                                        placeholder="Enter Case Description"></textarea>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Ref. Case No. / संदर्भ वाद संख्या</label>
+                                    <!-- <input class="form-control" placeholder="Enter Ref. Case No." type="text"
+                                        formControlName="ref_case_no"> -->
+                                        <select class="form-control select-language form-control-sm     validation"
+                                             formControlName="ref_case_no" (click)="getCaseNoByRefNo($event)">
+                                             <option value="">Select</option>
+                                            <option *ngFor="let data of getCaseNo" value={{data.case_no}}>{{data.case_no}}
+                                            </option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bb form-group"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Affidavit Filed / प्रतिशपथ पत्र दाख़िला </label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="ww" formControlName="case_affidavit_field"
+                                                value="Yes" onclick="setVisibilityAffidavit('sub5', 'inline'), VisibilityAffidavit('sub6', 'inline')  " (click)="reason_filingvisibility(false)"  >Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="ww" formControlName="case_affidavit_field"
+                                                value="No" (click)="reason_filingvisibility(true)" onclick="setVisibilityAffidavit('sub5', 'none'), VisibilityAffidavit('sub6', 'none')"   >No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- <div class="col-md-4" id="sub5" style="display:none;">
+                                <div class="input_grp form-group">
+                                    <label for="">Affidavit Filing Date / प्रतिशपथ पत्र दाख़िल कराने की तिथि</label>
+                                    <input class="form-control" type="date"
+                                        formControlName="case_affidavit_filing_date">
+                                </div>
+                            </div> -->
+                           
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Affidavit Filing Due Date / प्रतिशपथ पत्र दाख़िल कराने की निर्धारित
+                                        तिथि</label>
+                                    <input class="form-control" type="date" formControlName="case_affidavit_due_date">
+                                </div>
+                            </div>
+
+                           
+                        </div>
+
+                        
+                        <div class="row" *ngIf="reason_filing" id="reason_filing">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Reason For Not Filing Affidavit / प्रतिशपथ पत्र दाख़िल न कराने का
+                                        कारण</label>
+                                    <textarea class="form-control" type="text" formControlName="reason_affidavit_filing"
+                                        placeholder="Enter Reason For Not Filing Affidavit" ></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Rejoinder </label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="rejoinder" formControlName="case_rejoinder"
+                                                value="Yes"  onclick="setVisibilityRejoinder('sub7', 'inline'), VisibilityRejoinder('sub8', 'inline')">Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="rejoinder" formControlName="case_rejoinder"
+                                                value="No" onclick="setVisibilityRejoinder('sub7', 'none'), VisibilityRejoinder('sub8', 'none')" checked>No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="sub7" style="display:none;">
+                                <div class="input_grp form-group">
+                                    <label for="">Rejoinder Date</label>
+                                    <input class="form-control" type="date" formControlName="case_rejoinder_date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Remark / अभ्युक्ति</label>
+                                    <textarea class="form-control" type="text" formControlName="case_remark"
+                                        placeholder="Enter Remark"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">File No. / File Name</label>
+                                    <input class="form-control" type="text" formControlName="case_file_no"
+                                        placeholder="Enter File No." >
+                                    <!-- <img onclick="window.print()" src="../../../assets/img/google.png" alt=""> -->
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-6">
+                                <div class="input_grp form-group">
+                                    <label for="">Attach Document / दस्तावेज़ संलग्न करें</label>
+                                    <input class="form-control" type="file" id="myfile" name="myfile"
+                                        (change)="uploadDocument($event)" placeholder="Select File">
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-md-6">
+                                <div class="input_grp" style="margin: 18px 0 0 0;">
+                                    <img onclick="window.print()" src="../../../assets/img/qr2.png" alt=""
+                                        style="width:41px ;">
+                                    <qr-code [value]="qrCodeVal" [size]="width"></qr-code>
+                                </div>
+                            </div> -->
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-md-4">
+                                <div class="input_grp form-group">
+                                    <label for="">Document Type</label>
+                                    <input class="form-control" type="text" formControlName="case_doc_type"
+                                    placeholder="Enter Document Type.." >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input_grp form-group">
+                                    <label for="">Document Name</label>
+                                    <input class="form-control" type="text" placeholder="Enter Document Name.." formControlName="case_doc_name"
+                                    >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input_grp form-group">
+                                    <label for="">Attached by </label>
+                                    <input class="form-control" type="text"  formControlName="attached_by_id" placeholder="Enter.." [attr.disabled]="true"
+                                      >
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Counsel / अधिवक्ता <span class="text-danger">*</span></label>
+                                    <!-- <input class="form-control" type="text"> -->
+                                    <div class="input-group">
+                                      
+                                        <!-- <select class="form-control select-language form-control-sm validation"
+                                            formControlName="case_counsel_id" (change)="getCouncelById($event)">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let data of getDataCounsel" value={{data.coun_name}}>
+                                                {{data.coun_name}}</option>
+                                        </select> -->
+
+                                        <mat-form-field appearance="fill" class="widTH100">
+                                            <mat-select formControlName="case_counsel_id" (change)="getCouncelById($event)"  multiple (selectionChange)="filterCouncel($event)">
+                                              <mat-option *ngFor="let data of getDataCounsel" value={{data._id}}>
+                                                {{data.coun_name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#basicModal"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+                                    </div>
+                                    <div *ngIf="main.case_counsel_id.errors && isValidFormSubmittedMain"
+                                        class="text-danger text-left mb-1">
+                                        <div *ngIf="main.case_counsel_id.errors">This field is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Counsel / अधिवक्ता</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:6%;">S. No.</th>
+                                                    <th>Counsel Name</th>
+                                                    <th>Mobile</th>
+                                                    <th>Email</th>
+                                                    <th style="width:10%;text-align:center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let data of councelById; let i= index;">
+                                                    <td class="text-center">{{ [i+1] }}</td>
+                                                    <td>{{data.coun_name}}</td>
+                                                    <td>{{data.coun_mobile}}</td>
+                                                    <td>{{data.coun_email}}</td>
+                                                    <td style="text-align:center;">
+                                                        <div class="btn-group dropdown"><button
+                                                                class="btn btn-default w-xxs btn-sm r-2x"
+                                                                data-toggle="dropdown" aria-expanded="false"><i
+                                                                    class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                                <span class=""><i
+                                                                        class="fa fa-caret-down"></i></span></button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a href="/councel-details/{{data._id}}"target="_blank"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                        View </a>
+                                                                </li>
+                                                                <!-- <li><a href="/councel-update/{{data._id}}"><i class="fa fa-edit"></i> Edit </a></li> -->
+                                                                <!-- <li><a><i class="fa fa-trash-o"></i> Delete
+                                                                    </a></li> -->
+
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Ref. Case No. / संदर्भ वाद संख्या</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:6%;">S. No.</th>
+                                                    <th>Ref. Case No.</th>
+                                                    <th>Case Year</th>
+                                                    <th>Court</th>
+                                                    <!-- <th style="width:10%;text-align:center;">Action</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let data of refcasedata; let i= index;">
+                                                    <td class="text-center">{{ [i+1] }}</td>
+                                                    <td>{{data?.case_no}}</td>
+                                                    <td>{{data?.case_year}}</td>
+                                                    <td>{{data?.case_court_id?.court_name}}</td>
+                                                    <!-- <td>{{data.district_id}}</td> -->
+                                                    
+                                                    <!-- <td style="text-align:center;">
+                                                        <div class="btn-group dropdown"><button
+                                                                class="btn btn-default w-xxs btn-sm r-2x"
+                                                                data-toggle="dropdown" aria-expanded="false"><i
+                                                                    class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                                <span class=""><i
+                                                                        class="fa fa-caret-down"></i></span></button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                        View </a>
+                                                                </li>
+                                                                <li><a><i class="fa fa-edit"></i> Edit </a></li>
+                                                                <li><a><i class="fa fa-trash-o"></i> Delete
+                                                                    </a></li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </td> -->
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Petitioner / वादीगण</label>
+                                    <div class="input-group">
+                                      
+                                        <!-- <select class="form-control select-language form-control-sm validation"
+                                            formControlName="case_petitioner_id" (change)="getPetiById($event)">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let data of getDataPet" value={{data.name}}>{{data.name}}
+                                            </option>
+                                        </select> -->
+                                        <mat-form-field appearance="fill" class="widTH100">
+                                            <mat-select formControlName="case_petitioner_id" (change)="getPetiById($event)"  multiple (selectionChange)="filter($event)">
+                                              <mat-option *ngFor="let data of getDataPet" value={{data._id}}  >{{data.name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#largeModal"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Petitioner / वादीगण</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:6%;">S. No.</th>
+                                                    <th>Petitioner Name</th>
+                                                    <th>Designation</th>
+                                                    <th>Mobile</th>
+                                                    <th>District</th>
+                                                    <th style="width:10%;text-align:center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let data of petiById; let i= index;">
+                                                    <td class="text-center">{{ [i+1] }}</td>
+                                                    <td>{{data?.name}}</td>
+                                                    <td>{{data?.designation}}</td>
+                                                    <td>{{data?.mobile}}</td>
+                                                    <!-- <td>{{data.district_id}}</td> -->
+                                                    <td>{{data?.district_id?.district}}</td>
+                                                    <td style="text-align:center;">
+                                                        <div class="btn-group dropdown"><button
+                                                                class="btn btn-default w-xxs btn-sm r-2x"
+                                                                data-toggle="dropdown" aria-expanded="false"><i
+                                                                    class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                                <span class=""><i
+                                                                        class="fa fa-caret-down"></i></span></button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a href="/petitioner-details/{{data?._id}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                        View </a>
+                                                                </li>
+                                                                <!-- <li><a href="/petitioner-update/{{data._id}}"><i class="fa fa-edit"></i> Edit </a></li> -->
+                                                                <!-- <li><a><i class="fa fa-trash-o"></i> Delete
+                                                                    </a></li> -->
+
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Respondent / प्रतिवादीगण</label>
+                                    <!-- <input class="form-control" type="text"> -->
+                                    <div class="input-group">
+                                        <!-- <input type="text" class="form-control" placeholder="Search for..."> -->
+                                        <!-- <select class="form-control select-language form-control-sm validation"
+                                            formControlName="case_respondent_id" (change)="getResById($event)">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let data of getDataRes" value={{data.res_code}}>{{data.res_name}}
+                                            </option>
+
+                                        </select> -->
+
+                                        <mat-form-field appearance="fill" class="widTH100">
+                                            <mat-select formControlName="case_respondent_id" (change)="getResById($event)"  multiple (selectionChange)="filterRespondent($event)">
+                                               
+                                              <mat-option *ngFor="let data of getDataRes" value={{data._id}}>{{data.res_name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+
+                                        <span class="input-group-btn">
+                                            <button data-toggle="modal" data-target="#largeModal1"
+                                                class="btn btn-default" type="button"> + </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Respondent / प्रतिवादीगण</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:6%;">S. No.</th>
+                                                    <th>Respondent Name</th>
+                                                    <th>Designation</th>
+                                                    <th>Mobile</th>
+                                                    <th>District</th>
+                                                    <th style="width:10%;text-align:center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let data of resById; let i= index;">
+                                                    <td class="text-center">{{ [i+1] }}</td>
+                                                    <td>{{data?.res_name}}</td>
+                                                    <td>{{data?.res_designation}}</td>
+                                                    <td>{{data?.res_mobile}}</td>
+                                                    <td>{{data?.res_district_id.district}}</td>
+                                                    <td style="text-align:center;">
+                                                        <div class="btn-group dropdown"><button
+                                                                class="btn btn-default w-xxs btn-sm r-2x"
+                                                                data-toggle="dropdown" aria-expanded="false"><i
+                                                                    class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                                <span class=""><i
+                                                                        class="fa fa-caret-down"></i></span></button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a href="/respondent-details/{{data?._id}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                        View </a>
+                                                                </li>
+                                                                <!-- <li><a href="/respondent-update/{{data._id}}"><i class="fa fa-edit"></i> Edit </a></li> -->
+                                                                <!-- <li><a><i class="fa fa-trash-o"></i> Delete
+                                                                    </a></li> -->
+
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bb form-group"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Representing Officer / पैरोकार</label>
+                                    <div class="">
+                                        <select class="form-control select-language form-control-sm validation"
+                                        formControlName="case_ee_id"  (change)="getEeByIdData($event)">
+                                        <option value=''>Select</option>
+                                        <option *ngFor="let data of getEEAllData" value={{data._id}}>{{data.ee_name}}
+                                        </option>
+                                    </select>
+                                 
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input_grp form-group">
+                                    <label for="">Representing Officer / पैरोकार</label>
+                                    <div class="input-group">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:6%;">S. No.</th>
+                                                    <th>Representing Officer Name</th>
+                                                    <th>Designation</th>
+                                                    <th>Mobile</th>
+                                                    <th>District</th>
+                                                    <th style="width:10%;text-align:center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let data of EeDataById; let i= index;">
+                                                    <td class="text-center">{{ [i+1] }}</td>
+                                                    <td>{{data?.ee_name}}</td>
+                                                    <td>{{data?.ee_designation}}</td>
+                                                    <td>{{data?.ee_mobile}}</td>
+                                                    <td>{{data?.ee_district_id?.district}}</td>
+                                                    <td style="text-align:center;">
+                                                        <div class="btn-group dropdown"><button
+                                                                class="btn btn-default w-xxs btn-sm r-2x"
+                                                                data-toggle="dropdown" aria-expanded="false"><i
+                                                                    class="fa fa-cog g-px-5  text-info text-sm"></i>
+                                                                <span class=""><i
+                                                                        class="fa fa-caret-down"></i></span></button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a href="/representing-details/{{data?._id}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                                        View </a>
+                                                                </li>
+                                                                <!-- <li><a href="/ee-update/{{data._id}}"><i class="fa fa-edit"></i> Edit </a></li> -->
+                                                                <!-- <li><a><i class="fa fa-trash-o"></i> Delete
+                                                                    </a></li> -->
+
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                   
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <div class="button_group_fotter">
+                                        <!-- <a style="border-color:#ddd;" href="javascript:void(0)">Cancel</a>
+                                        <a style="border-color:#008000;" href="javascript:void(0)">Reset</a>
+                                        <a style="border-color:#f06321;" href="javascript:void(0)">Save</a> -->
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- .................................Petitioner Modal.................................... -->
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true"
+    #petitioner>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Petitioner</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="saveFormPetitioner" (ngSubmit)="clickFunction()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Petitioner Type <span class="text-danger">*</span></label>
+                                <div class="">
+                                    <label class="radio-inline">
+                                        <input type="radio" formControlName="pet_employee" value="Employee" (click)="pet_type('Employee')">Employee
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input  type="radio" formControlName="pet_employee" value="Non Employee" (click)="pet_type('Non Employee')">Non Employee
+                                    </label>
+
+                                </div>
+                                <!-- <div *ngIf="f.pet_employee.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.pet_employee.errors">This field is required</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_name">
+                                <div *ngIf="f.pet_name.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.pet_name.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Designation / पद </label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_designation">
+                                <div *ngIf="f.pet_designation.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.pet_designation.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" >
+                            <div class="input_grp form-group">
+                                <label for="">District / जिला <span class="text-danger">*</span></label>
+                                <select class="form-control select-language form-control-sm validation"
+                                    formControlName="pet_district_id">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataDist" value={{data._id}}>{{data.district}}
+                                    </option>
+
+                                </select>
+                                <div *ngIf="f.pet_district_id.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.pet_district_id.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल </label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_email">
+                                <!-- <div *ngIf="f.pet_email.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.pet_email.errors">This field is required</div>
+                                </div> -->
+
+                                <div *ngIf="f.pet_email.errors && f.pet_email.errors.pattern && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.pet_email.errors.pattern"><small>Email is not valid</small></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Phone / फ़ोन </label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_mobile" minlength="10" maxlength="10">
+                                <!-- <div *ngIf="f.pet_mobile.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.pet_mobile.errors">This field is required</div>
+                                </div> -->
+                                <div *ngIf="f.pet_mobile.errors && f.pet_mobile.errors.pattern"
+                                        class="text-danger text-left mb-1 errorcontrols">
+                                        <div *ngIf="f.pet_mobile.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Address / पता</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_address">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_block">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Village / ग्राम</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_village">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Pincode / पिन कोड</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_pincode">
+
+                                    <div *ngIf="f.pet_pincode.errors && f.pet_pincode.errors.pattern"
+                                        class="text-danger text-left mb-1 errorcontrols">
+                                        <div *ngIf="f.pet_pincode.errors.pattern">Please, Enter 6 digit Pincode </div>
+                                        </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Division / विभाजन</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="pet_divition">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="button_group_fotter">
+
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- .................................Respondent Modal.................................... -->
+
+<div class="modal fade" id="largeModal1" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true"
+    #respondent>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Respondent</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="saveFormRespondent" (ngSubmit)="clickFunctionRes()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Respondent Type <span class="text-danger">*</span></label>
+                                <div class="">
+                                    <label class="radio-inline">
+                                        <input type="radio" formControlName="res_employee" value="Employee" (click)="respondent_type('Employee')">Employee
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input  type="radio" formControlName="res_employee" value="Non Employee" (click)="respondent_type('Non Employee')">Non Employee
+                                    </label>
+
+                                </div>
+                                <!-- <div *ngIf="f.res_employee.errors && isValidFormSubmitted"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="f.res_employee.errors">This field is required</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_name">
+                                <div *ngIf="res.res_name.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_name.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Designation / पद </label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_designation">
+                                <div *ngIf="res.res_designation.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_designation.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">District / जिला <span class="text-danger">*</span></label>
+                                <select class="form-control select-language form-control-sm validation"
+                                    formControlName="res_district_id">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataDist" value={{data._id}}>{{data.district}}
+                                    </option>
+
+                                </select>
+                                <div *ngIf="res.res_district_id.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_district_id.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल </label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_email">
+                                <!-- <div *ngIf="res.res_email.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_email.errors">This field is required</div>
+                                </div> -->
+
+                                <div *ngIf="res.res_email.errors && res.res_email.errors.pattern && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_email.errors.pattern"><small>Email is not valid</small></div>
+
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Phone / फ़ोन </label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_mobile" minlength="10" maxlength="10">
+                                <!-- <div *ngIf="res.res_mobile.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_mobile.errors">This field is required</div>
+                                </div> -->
+                                <div *ngIf="res.res_mobile.errors && res.res_mobile.errors.pattern"
+                                        class="text-danger text-left mb-1 errorcontrols">
+                                        <div *ngIf="res.res_mobile.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_block">
+                            </div>
+                        </div>
+                     
+                    </div>
+                    <div class="row">
+                        <!-- <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div> -->
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Village / ग्राम</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_village">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Address / पता</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Pincode / पिन कोड</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_pincode">
+
+                                    <div *ngIf="res.res_pincode.errors && res.res_pincode.errors.pattern"
+                                        class="text-danger text-left mb-1 errorcontrols">
+                                        <div *ngIf="res.res_pincode.errors.pattern">Please, Enter 6 digit Pincode </div>
+                                        </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Division / विभाजन</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_divition">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- .................................Representing Officer Modal.................................... -->
+
+<div class="modal fade" id="largeModal2" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true"
+    #respondent>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Representing Officer</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="saveFormRespondent" (ngSubmit)="clickFunctionRes()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_name">
+                                <div *ngIf="res.res_name.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_name.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Designation / पद <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_designation">
+                                <div *ngIf="res.res_designation.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_designation.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_email">
+                                <div *ngIf="res.res_email.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_email.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Phone / फ़ोन <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_mobile" minlength="10" maxlength="10">
+                                <div *ngIf="res.res_mobile.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_mobile.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_block">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">District / जिला <span class="text-danger">*</span></label>
+                                <select class="form-control select-language form-control-sm validation"
+                                    formControlName="res_district_id">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataDist" value={{data._id}}>{{data.district}}
+                                    </option>
+
+                                </select>
+                                <div *ngIf="res.res_district_id.errors && isValidFormSubmittedRes"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="res.res_district_id.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div> -->
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Village / ग्राम</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_village">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Address / पता</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Pincode / पिन कोड</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_pincode">
+
+                                   
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Division / विभाजन</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="res_divition">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- <form [formGroup]="saveFormRepresenting" (ngSubmit)="clickFunctionRepres()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="repres_name">
+                                <div *ngIf="repres.repres_name.errors && isValidFormSubmittedRepres"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="repres.repres_name.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Designation / पद <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="repres_designation">
+                                <div *ngIf="repres.repres_designation.errors && isValidFormSubmittedRepres"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="repres.repres_designation.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="repres_email">
+                                <div *ngIf="repres.repres_email.errors && isValidFormSubmittedRepres"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="repres.repres_email.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Phone / फ़ोन <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="repres_mobile" minlength="10" maxlength="10">
+                                <div *ngIf="repres.repres_mobile.errors && isValidFormSubmittedRepres"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="repres.repres_mobile.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Block / ब्लॉक</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="repres_block">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">District / जिला <span class="text-danger">*</span></label>
+                                <select class="form-control select-language form-control-sm validation"
+                                    formControlName="repres_district_id">
+                                    <option value=''>Select</option>
+                                    <option *ngFor="let data of getDataDist" value={{data._id}}>{{data.district}}
+                                    </option>
+
+                                </select>
+                                <div *ngIf="repres.repres_district_id.errors && isValidFormSubmittedRepres"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="repres.repres_district_id.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Village / ग्राम</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="repres_village">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Address / पता</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="repres_address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Pincode / पिन कोड</label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="repres_pincode">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- .................................Counsel Modal.................................... -->
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true"
+    #counsel>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Counsel</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="saveFormCounsel" (ngSubmit)="clickFunctionCounsel()">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input_grp form-group">
+                                <label for="">Name / नाम <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="coun_name">
+                                <div *ngIf="coun.coun_name.errors && isValidFormSubmittedCoun"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="coun.coun_name.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input_grp form-group">
+                                <label for="">Mobile / मोबाइल <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="coun_mobile" minlength="10" maxlength="10">
+                                    <div *ngIf="coun.coun_mobile.errors && isValidFormSubmittedCoun"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="coun.coun_mobile.errors">This field is required</div>
+                                </div>
+                                <div *ngIf="coun.coun_mobile.errors && coun.coun_mobile.errors.pattern"
+                                        class="text-danger text-left mb-1 ">
+                                        <div *ngIf="coun.coun_mobile.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input_grp form-group">
+                                <label for="">Email / ईमेल <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter.."
+                                    formControlName="coun_email">
+                               
+
+                                <div *ngIf="coun.coun_email.errors && isValidFormSubmittedCoun"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="coun.coun_email.errors">This field is required</div>
+                                </div>
+
+                                <div *ngIf="coun.coun_email.errors && coun.coun_email.errors.pattern && isValidFormSubmittedCoun"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="coun.coun_email.errors.pattern"><small>Email is not valid</small></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ..........................................Add Contempt Case Information Modal................................ -->
+
+<div class="modal fade" id="largeModal00" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true"
+    #noteModal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">Contempt Case Information</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="saveFormContempt" (ngSubmit)="clickFunctionContempt()" id="contempt1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Contempt Case No. / अवमाननावाद संख्या <span
+                                        class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Contempt Case No."
+                                    formControlName="contempt_no">
+                                <div *ngIf="cont.contempt_no.errors && isValidFormSubmittedCont"
+                                    class="text-danger text-left mb-1">
+                                    <div *ngIf="cont.contempt_no.errors">This field is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Contempt Case Year / अवमाननावाद वर्ष </label>
+                                <input class="form-control" type="text" placeholder="Select Contempt Case Year"
+                                    formControlName="contempt_year" id="contempt_year" autocomplete="off" minlength="4"
+                                    maxlength="4">
+                                <!-- <div *ngIf="cont.contempt_year.errors && isValidFormSubmittedCont"class="text-danger text-left mb-1">
+                                    <div *ngIf="cont.contempt_year.errors">This field is required</div>
+                               </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input_grp form-group">
+                                <label for="">Reason for Non-Compliance / पारित आदेश का विवरण जिसका अनुपालन ना करने पर
+                                    अवमाननावाद दायर किया गया </label>
+                                <input class="form-control" type="text" placeholder="Enter Reason for Non-Compliance"
+                                    formControlName="contempt_reason">
+                                <!-- <div *ngIf="cont.contempt_reason.errors && isValidFormSubmittedCont"class="text-danger text-left mb-1">
+                                    <div *ngIf="cont.contempt_reason.errors">This field is required</div>
+                               </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Contempt Status / अवमाननावाद की अघतन स्थिति </label>
+                                <input class="form-control" type="text" placeholder="Enter Contempt Status"
+                                    formControlName="contempt_status">
+                                <!-- <div *ngIf="cont.contempt_status.errors && isValidFormSubmittedCont"class="text-danger text-left mb-1">
+                                    <div *ngIf="cont.contempt_status.errors">This field is required</div>
+                               </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_grp form-group">
+                                <label for="">Contempt Remark / अवमाननावाद अभ्युक्ति </label>
+                                <input class="form-control" type="text" placeholder="Enter Contempt Remark"
+                                    formControlName="contempt_remark">
+                                <!-- <div *ngIf="cont.contempt_remark.errors && isValidFormSubmittedCont"class="text-danger text-left mb-1">
+                                    <div *ngIf="cont.contempt_remark.errors">This field is required</div>
+                               </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-info"  data-dismiss="modal">Close</button> -->
+                                <button type="submit" class="btn btn-primary">Save</button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
