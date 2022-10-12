@@ -1374,6 +1374,6 @@ button.btn.btn-default.disabled {
 } */
  
 #sidebar::-webkit-scrollbar-thumb {
-  background-color: #fff;
-  outline: 1px solid #fff;
+  background-color: #f06321;
+  outline: 1px solid #f06321;
 }
